@@ -1,0 +1,20 @@
+{extends "default"}
+
+{var $page = 'docs'}
+
+{block content}
+<div class="flex">
+	<aside class="sidebar">
+		<ul n:inner-foreach="$docs as $page" class="list-reset mr-8">
+			<li class="border-b">
+				<a href="/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('title') === $doc->getOption('title') ? text-green-dark">{$page->getOption('title')}</a>
+			</li>
+		</ul>
+	</aside>
+
+	<div class="content min-w-0">
+		<h1 class="text-grey-darker">{$title}</h1>
+		{$doc->getContent()|noescape}
+	</div>
+</div>
+{/block}

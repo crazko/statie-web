@@ -1,0 +1,117 @@
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-size: 16px;
+}
+
+a {
+	color: #9BABB4;
+}
+
+h1,
+h2,
+h3 {
+	margin-bottom: 1em;
+	font-weight: normal;
+}
+
+.header a {
+	color: white;
+	text-decoration: none;
+}
+
+.nav__item {
+	display: inline-block;
+}
+
+.nav__item:not(:first-child) {
+	margin-left: 1em;
+}
+
+.nav__link {
+	padding: 10px;
+	border-bottom: 2px solid transparent;
+}
+
+.nav__link:hover {
+	border-color: #fff
+}
+
+.nav__link--active {
+	border-color: #F2D024
+}
+
+.hero {
+	min-height: 50vh;
+}
+
+.main p,
+.main pre {
+	margin-bottom: 2em;
+}
+
+.sidebar {
+	flex: 0 0 250px;
+}
+
+.content {
+}
+
+.footer a {
+	color: #fff;
+}
+
+/**
+ * Background
+ */
+ .background {
+	background-color: #1F9D55;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	z-index: -1;
+	position: fixed;
+}
+
+.background__image {
+	display: block;
+	filter: grayscale(100%);
+	height: 100vh;
+	mix-blend-mode: multiply;
+	object-fit: cover;
+	width: 100vw;
+}
+
+/**
+ * Github Octocat Corner
+ * @link https://github.com/tholman/github-corners/
+ */
+.github-corner:hover .octo-arm{
+	animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+	0%, 100% {
+		transform: rotate(0)
+	}
+	20%, 60% {
+		transform: rotate(-25deg)
+	}
+	40%, 80% {
+		transform: rotate(10deg)
+	}
+}
+
+@media (max-width:500px) {
+	.github-corner:hover .octo-arm{
+		animation: none
+	}
+
+	.github-corner .octo-arm {
+		animation: octocat-wave 560ms ease-in-out
+	}
+}

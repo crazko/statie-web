@@ -1,0 +1,24 @@
+language: php
+
+php: 7.1
+
+branches:
+    only:
+        - master
+
+install:
+    - composer require symplify/statie
+
+script:
+    - vendor/bin/statie generate source
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: output
+    on:
+        branch: master
+
+notifications:
+    email: false
