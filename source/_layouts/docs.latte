@@ -7,7 +7,7 @@
 	<aside class="sidebar">
 		<ul n:inner-foreach="$docs as $page" class="list-reset mr-8">
 			<li class="border-b">
-				<a href="/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('title') === $doc->getOption('title') ? text-green-dark">{$page->getOption('title')}</a>
+				<a href="{$site['url']}/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('title') === $doc->getOption('title') ? text-green-dark">{$page->getOption('title')}</a>
 			</li>
 		</ul>
 	</aside>
