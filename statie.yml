@@ -1,3 +1,6 @@
+imports:
+    - { resource: 'source/_data/projects.yml' }
+
 parameters:
     site:
         url: https://crazko.github.io/statie-web

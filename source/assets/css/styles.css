@@ -17,6 +17,10 @@ h3 {
 	font-weight: normal;
 }
 
+/**
+ * Header & Navigation
+ */
+
 .header a {
 	color: white;
 	text-decoration: none;
@@ -47,9 +51,30 @@ h3 {
 	min-height: 50vh;
 }
 
+/**
+ * Content
+ */
+
 .main p,
 .main pre {
 	margin-bottom: 2em;
+}
+
+.project {
+	position: relative;
+}
+
+.project__repository {
+	border-radius: 100%;
+	display: block;
+	height: 25px;
+	position: absolute;
+	right: -10px;
+	text-indent: -3000px;
+	top: -10px;
+	width: 25px;
+	background-color: #fff;
+	/* background octocat */
 }
 
 .sidebar {

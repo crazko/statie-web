@@ -27,7 +27,7 @@
 
 	{ifset #hero}
 		<div class="hero max-w-xl mx-auto py-8 text-white flex flex-col justify-end text-white">
-			{include hero}
+			{block hero}{/block}
 		</div>
 	{/ifset}
 
@@ -36,6 +36,8 @@
 			{block content}{/block}
 		</div>
 	</main>
+
+	{block subcontent}{/block}
 
 	<footer role="contentinfo" class="footer text-center py-6 text-white">
 		<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; {php echo date('Y')}, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
