@@ -3,15 +3,15 @@
 {var $page = 'docs'}
 
 {block content}
-<div class="flex">
-	<aside class="sidebar">
-		{include "docs-navigation", type => "basic"}
-		{include "docs-navigation", type => "advanced"}
-	</aside>
-
-	<div class="content min-w-0">
+<div class="md:flex md:flex-row-reverse">
+	<div class="content md:flex-1 md:min-w-0">
 		<h1 class="text-grey-darker">{$title}</h1>
 		{$doc->getContent()|noescape}
 	</div>
+
+	<aside class="sidebar md:mr-8">
+		{include "docs-navigation", type => "basic"}
+		{include "docs-navigation", type => "advanced"}
+	</aside>
 </div>
 {/block}

@@ -4,8 +4,6 @@ id: 5
 type: advanced
 ---
 
-## Generators
-
 Posts? Lectures? Places?
 
 All those items with **multiple records and own page** can be configured in `statie.yml`.
@@ -41,8 +39,7 @@ parameters:
             object: 'Symplify\Statie\Renderable\File\PostFile'
 ```
 
-
-### How to Add New Generator?
+## How to Add New Generator?
 
 1. Create directory in `/source`
 

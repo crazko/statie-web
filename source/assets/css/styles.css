@@ -17,6 +17,10 @@ h3 {
 	font-weight: normal;
 }
 
+pre {
+	font-size: .8em;
+}
+
 /**
  * Header & Navigation
  */
@@ -85,7 +89,6 @@ h3 {
 }
 
 .content {
-	flex: 1 0 0;
 }
 
 .footer a {
