@@ -1,5 +1,7 @@
 ---
 title: Configuration
+id: 2
+type: basic
 ---
 
 ## Parameters

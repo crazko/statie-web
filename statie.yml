@@ -3,7 +3,7 @@ imports:
 
 parameters:
     site:
-        url: https://crazko.github.io/statie-web
+        url: /statie-web
         title: Statie - Modern and Simple Static Site Generator in PHP
 
     generators:

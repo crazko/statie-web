@@ -1,5 +1,7 @@
 ---
 title: Generators
+id: 5
+type: advanced
 ---
 
 ## Generators

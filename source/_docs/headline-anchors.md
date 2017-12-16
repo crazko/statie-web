@@ -1,5 +1,7 @@
 ---
 title: Headline Anchors
+id: 4
+type: basic
 ---
 
 ## Headline Anchors

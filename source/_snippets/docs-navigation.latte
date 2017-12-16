@@ -1,0 +1,14 @@
+<div class="uppercase mb-4">{$type}</div>
+
+<ul class="list-reset mb-6 mr-8">
+{var $docCount = count($docs)}
+{for $i = 1; $i <= $docCount; $i++}
+	{foreach $docs as $page}
+		{continueIf $page->getOption('type') !== $type}
+		{continueIf $page->getOption('id') !== $i}
+		<li class="border-b">
+			<a href="{$site['url']}/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('id') === $doc->getOption('id') ? text-green-dark">{$page->getOption('title')}</a>
+		</li>
+	{/foreach}
+{/for}
+</ul>
