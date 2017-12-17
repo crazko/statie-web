@@ -14,7 +14,7 @@ When your hover any headline, an anchor link to it will appear on the left. Just
 
 ## How to Setup?
 
-**1. Enable in `statie.yml`**
+Enable it in `statie.yml`
 
 ```yaml
 # statie.yml
@@ -22,7 +22,7 @@ parameters:
     markdown_headline_anchors: true
 ```
 
-**2. Add style to your css**
+### Add style to your css
 
 Feel free to modify this sample to your needs:
 
