@@ -4,8 +4,6 @@ id: 4
 type: basic
 ---
 
-## Headline Anchors
-
 Do you want to **share link to 3rd paragraph** of the post?
 
 When your hover any headline, an anchor link to it will appear on the left. Just click & share it!
@@ -14,7 +12,7 @@ When your hover any headline, an anchor link to it will appear on the left. Just
 
 *Note: this applied only to Generated Elements (e.g. posts etc.), not to standalone pages (e.g. index, contact).*
 
-### How to Setup?
+## How to Setup?
 
 **1. Enable in `statie.yml`**
 
