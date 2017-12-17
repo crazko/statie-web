@@ -53,6 +53,7 @@ pre {
 
 .hero {
 	min-height: 50vh;
+	position: relative;
 }
 
 /**
@@ -93,6 +94,20 @@ pre {
 
 .footer a {
 	color: #fff;
+}
+
+.terminal {
+	background-color: #3D4852;
+	border: 1px solid #22292F;
+	border-top-width: 1em;
+	border-radius: 5px 5px 0 0;
+	bottom: -50px;
+	color: #F8FAFC;
+	font-size: 1em;
+	max-width: 500px;
+	overflow: hidden;
+	padding: 2em;
+	right: 1em;
 }
 
 /**
