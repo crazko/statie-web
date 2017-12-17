@@ -61,7 +61,8 @@ pre {
  */
 
 .main p,
-.main pre {
+.main pre,
+.main ul {
 	margin-bottom: 2em;
 }
 
@@ -87,9 +88,6 @@ pre {
 
 .sidebar {
 	flex: 0 0 250px;
-}
-
-.content {
 }
 
 .footer a {
