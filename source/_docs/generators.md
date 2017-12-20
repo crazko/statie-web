@@ -1,7 +1,6 @@
 ---
 title: Generators
 id: 7
-type: advanced
 ---
 
 Posts? Lectures? Places?

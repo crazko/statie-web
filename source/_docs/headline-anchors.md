@@ -1,7 +1,6 @@
 ---
 title: Headline Anchors
 id: 4
-type: basic
 ---
 
 Do you want to **share link to 3rd paragraph** of the post?

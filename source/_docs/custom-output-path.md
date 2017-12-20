@@ -1,7 +1,6 @@
 ---
 title: Custom Output Path
 id: 5
-type: basic
 ---
 
 Default output path for files is `<filename>/index.html`.

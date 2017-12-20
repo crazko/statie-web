@@ -1,7 +1,6 @@
 ---
 title: Push Content To Github Pages With Travis
 id: 9
-type: advanced
 ---
 
 The best way to use Statie is have [website on Github repository](https://github.com/TomasVotruba/tomasvotruba.cz), use Github Pages and use Travis to update generated content for you.

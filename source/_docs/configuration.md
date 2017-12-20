@@ -1,7 +1,6 @@
 ---
 title: Configuration
 id: 2
-type: basic
 ---
 
 ## Parameters
@@ -16,6 +15,7 @@ parameters:
 ```
 
 ## Importing other configs
+
 It is possible to split long configuration into more smaller files.
 
 ```yaml

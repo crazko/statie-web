@@ -1,13 +1,11 @@
 ---
 title: Related Items
 id: 6
-type: advanced
 ---
 
-*Note: this applied only to Generated Elements.*
+_Note: this applied only to Generated Elements._
 
 Do you write a post series? Help a reader and **show related posts bellow** using `relatedItems` Latte filter.
-
 
 ## How to Setup?
 
@@ -20,7 +18,6 @@ id: 1
 title: My first post
 related_items: [2]
 ```
-
 
 ```yaml
 ---
