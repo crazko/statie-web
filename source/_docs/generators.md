@@ -8,7 +8,7 @@ Posts? Lectures? Places?
 
 All those items with **multiple records and own page** can be configured in `statie.yml`.
 
-This is how default configuration for *posts* looks like:
+This is how default configuration for _posts_ looks like:
 
 ```yaml
 parameters:
@@ -41,19 +41,19 @@ parameters:
 
 ## How to Add New Generator?
 
-1. Create directory in `/source`
+Create directory in `/source`
 
 ```bash
 /source/_lectures
 ```
 
-2. Create own layout in `/source/_layouts`
+Create own layout in `/source/_layouts`
 
 ```bash
 /source/_layouts/lecture.latte
 ```
 
-3. Add configuration to `statie.yml`
+Add configuration to `statie.yml`
 
 ```yaml
 # statie.yml
@@ -67,10 +67,9 @@ parameters:
             route_prefix: 'learn'
 ```
 
+### Optional
 
-**Optional**
-
-4. If you need own object with super method, create it:
+If you need own object with super method, create it:
 
 ```php
 namespace MyWebsite\Statie;
@@ -96,7 +95,7 @@ final class LectureFile extends AbstractFile
 }
 ```
 
-5.  And configure it in `statie.yml`
+And configure it in `statie.yml`
 
 ```yaml
 # statie.yml
