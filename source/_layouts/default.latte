@@ -17,14 +17,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
 	integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
 </head>
-<body class="bg-green-darkest font-sans text-grey-darkest">
+<body class="bg-green-dark font-sans text-grey-darkest">
 	<header class="header max-w-xl mx-auto py-8 px-4">
 		{include "navigation"}
 	</header>
 
 	{ifset #hero}
-		<div class="hero max-w-xl mx-auto py-8 px-4 text-white flex flex-col justify-end text-white">
-			{include hero}
+		<div class="hero max-w-xl mx-auto py-8 px-4 text-white flex flex-col justify-end text-white relative">
+			{include hero}			
 		</div>
 	{/ifset}
 
@@ -40,6 +40,5 @@
 		<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; {date('Y')}, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
 		<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
 	</footer>
-	<div class="background"><img src="{$site['url']}/assets/img/bg.jpg" class="background__image"></div>
 </body>
 </html>
