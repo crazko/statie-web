@@ -7,7 +7,7 @@
 		{continueIf $page->getOption('type') !== $type}
 		{continueIf $page->getOption('id') !== $i}
 		<li class="border-b">
-			<a href="{$site['url']}/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('id') === $doc->getOption('id') ? text-green-dark">{$page->getOption('title')}</a>
+			<a href="{$site['url']}/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('id') === $doc->getOption('id') ? text-teal-dark">{$page->getOption('title')}</a>
 		</li>
 	{/foreach}
 {/for}
