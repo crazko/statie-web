@@ -6,6 +6,9 @@ branches:
     only:
         - master
 
+script:
+    - date
+
 after_success:
     - cd docs
     - composer require symplify/statie
