@@ -1,5 +1,6 @@
 # Statie website
 
-## Generate site from the source
-
-`vendor/bin/statie generate source`
+```bash
+composer require symplify/statie
+vendor/bin/statie generate source
+```
