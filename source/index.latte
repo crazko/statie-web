@@ -44,7 +44,7 @@ $ php -S localhost:8000 -t output</code></pre>
 			<p class="mb-4">Take a look on what have been built so far. Be sure to <a href="#" class="text-black">add your project</a> as well!</p>
 
 			{foreach $projects as $project}
-				<div class="project inline-block mr-2 mb-2">
+				<div class="inline-block mr-2 mb-2 relative">
 					<a href="{$project['url']}" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
 						{$project['url']|replaceRE:'/.*\/{2}(w{3}\.)?/':''}
 					</a>

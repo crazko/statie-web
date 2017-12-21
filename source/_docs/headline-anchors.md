@@ -7,7 +7,7 @@ Do you want to **share link to 3rd paragraph** of the post?
 
 When your hover any headline, an anchor link to it will appear on the left. Just click & share it!
 
-![Headline Anchors](../data/github-like-headline-anchors.png)
+![Headline Anchors](/statie-web/data/github-like-headline-anchors.png)
 
 _Note: this applied only to Generated Elements (e.g. posts etc.), not to standalone pages (e.g. index, contact)._
 

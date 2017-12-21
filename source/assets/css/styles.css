@@ -21,10 +21,6 @@ pre {
 	font-size: 0.8em;
 }
 
-/**
- * Header & Navigation
- */
-
 .header a {
 	color: #fff;
 	text-decoration: none;
@@ -55,18 +51,10 @@ pre {
 	min-height: 40vh;
 }
 
-/**
- * Content
- */
-
 .main p,
 .main pre,
 .main ul {
 	margin-bottom: 2em;
-}
-
-.project {
-	position: relative;
 }
 
 .project__repository {
@@ -100,7 +88,7 @@ pre {
 	border-radius: 5px 5px 0 0;
 	bottom: -50px;
 	color: #f8fafc;
-	font-size: 1em;
+	font-size: .9em;
 	max-width: 500px;
 	overflow: hidden;
 	padding: 2em;
