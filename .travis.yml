@@ -6,17 +6,16 @@ branches:
     only:
         - master
 
-install:
+after_success:
+    - cd docs
     - composer require symplify/statie
-
-script:
     - vendor/bin/statie generate source
 
 deploy:
     provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: output
+    local_dir: docs/output
     on:
         branch: master
 
