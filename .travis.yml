@@ -18,7 +18,7 @@ deploy:
     provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: docs/output
+    local_dir: output
     on:
         branch: master
 
