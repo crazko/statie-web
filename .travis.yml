@@ -8,6 +8,8 @@ branches:
 
 install:
     - composer require symplify/statie
+
+script:
     - vendor/bin/statie generate source
 
 deploy:
