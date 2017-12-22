@@ -6,11 +6,7 @@ branches:
     only:
         - master
 
-script:
-    - date
-
-after_success:
-    - cd docs
+install:
     - composer require symplify/statie
     - vendor/bin/statie generate source
 
