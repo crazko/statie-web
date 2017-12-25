@@ -4,7 +4,7 @@
 	{foreach $docs as $page}
 		{continueIf $page->getOption('id') !== $item}
 		<li class="border-b">
-			<a href="{$site['url']}/{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('id') === $doc->getOption('id') ? text-teal-dark">{$page->getOption('title')}</a>
+			<a href="{$site['url']}{$page->getRelativeUrl()}" n:class="block, py-2, no-underline, 'hover:underline', $page->getOption('id') === $doc->getOption('id') ? text-teal-dark">{$page->getOption('title')}</a>
 		</li>
 	{/foreach}
 </ul>
