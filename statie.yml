@@ -3,7 +3,7 @@ imports:
 
 parameters:
     site:
-        url: /
+        url: 
         title: Statie - Modern and Simple Static Site Generator in PHP
 
     generators:
