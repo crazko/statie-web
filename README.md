@@ -1,6 +1,6 @@
 # [Statie](https://github.com/Symplify/Statie) website
 
-See at [statie.org](http://www.statie.org)
+See at [statie.org](https://www.statie.org)
 
 ```bash
 composer require symplify/statie

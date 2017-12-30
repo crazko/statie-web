@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<title>{if isset($title)}{$title} | {$site['title']}{else}{$site['title']}{/if}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{* @link http://realfavicongenerator.net/ *}
+{* <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> *}
+{* <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> *}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" integrity="sha256-DJJDQyzflMYiUb2jX3gilm9m3gAkHPC4WLv9BAk4rTE=" crossorigin="anonymous" />
+<link rel="stylesheet" href="{$site['url']}assets/css/styles.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js" integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js" integrity="sha256-YiD4iV/2ItR7G+/f9kSqSxPn/7TYqX9vFxKdZ8mcx5w=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
+integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
+
+{* Global site tag (gtag.js) - Google Analytics *}
+<script async src="https://www.googletagmanager.com/gtag/js?id={$site['ga_tracking_id']}"></script>
+<script>
+	// Disable when running locally
+	if (window.location.hostname === 'localhost') {
+		window['ga-disable-' + {$site['ga_tracking_id']}] = true;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', {$site['ga_tracking_id']});
+</script>

@@ -5,6 +5,7 @@ parameters:
     site:
         url: /
         title: Statie - Modern and Simple Static Site Generator in PHP
+        ga_tracking_id: UA-4520387-28
 
     generators:
         docs:
