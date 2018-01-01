@@ -1,64 +1,66 @@
 ---
-title: Push Content To Github Pages With Travis
+title: Publish Content To Github Pages
 id: 9
 ---
 
-The best way to use Statie is have [website on Github repository](https://github.com/TomasVotruba/tomasvotruba.cz), use Github Pages and use Travis to update generated content for you.
+The best way to use Statie is to have a [website on Github repository](https://github.com/TomasVotruba/tomasvotruba.cz), use [Github Pages](https://pages.github.com/) and [Travis](https://www.travis-ci.org/) to host and update generated content for you.
 
-## How to Setup?
+How to Setup?
 
-### Setup GH_TOKEN to `travis.yml`
+## Prepare the repository
 
-Add Github Token, so Travis is allowed to push to your Github repository.
+Github Pages usually shows the content of the special branch named `gh-pages`. Use following commands to create it:
 
-- On Github go to *Settings* → *[Developer Settings](https://github.com/settings/developers)* → *[Personal Access Tokens](https://github.com/settings/tokens)* → *Generate New Token* - Select "Repo" scope
+```shell
+git checkout -b gh-pages
+git push origin gh-pages
+```
 
-- Download [Travis CLI tool](https://github.com/travis-ci/travis.rb#installation)
+## Configure Travis
 
-- Run it in shell in root of your repository, where `<code>` is Github Token from step above:
+In the root of your project's directory create `.travis.yml` file with the following content:
 
-    ```yaml
-    travis encrypt GH_TOKEN=<code>
-    ```
+```yaml
+language: php
 
-- It may happen that repository is not recognized by Travis. To fix that, go to `https://travis-ci.org/<repository-slug>`
-    and add it there (like you do when you add new repository to be CI tested by Travis).
+php: 7.1
 
-- When successful, this should encrypt your token to something like `f34vQ...<hundreds-of-chards>...Pa=`
+branches:
+    only:
+        - master
 
-- Finally, add this hash to `travis.yml`:
+install:
+    - composer install
 
-    ```yml
-    env:
-        global:
-            - secure: f34vQ...Pa=
-    ```
+script:
+    - vendor/bin/statie generate source
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: output
+    on:
+        branch: master
+```
+
+Such configuration will install all dependencies and generate output on every commit you push (also on every pull request) to the repository, but publish it only when changes are made upon the `master` branch (specified in the last row).
+
+Notice the usage of the variable `$GH_TOKEN` - this adds Travis rights to make changes.
+
+You can read more about deploying to Github Pages in the [official documentation](https://docs.travis-ci.com/user/deployment/pages/).
+
+## Create `$GH_TOKEN`
+
+Travis is not allowed to modify your Github repository per se. We need to give it a correct rights explicitly - via tokens.
+
+On Github go to [Settings](https://github.com/settings/profile) → [Developer Settings](https://github.com/settings/developers) → [Personal Access Tokens](https://github.com/settings/tokens) → **Generate New Token** and select **repo** scope. Give it a recognisable name and copy generated token afterwards.
+
+Visit `https://travis-ci.org/<github-profile>/<repository-name>` and **Activate repository**. Select **More options** → **Settings** and under **Environment variables** add new one:
+
+- Name: **GH_TOKEN**
+- Value: generated token
 
 Now the Travis is able to push to your Github repository for you!
 
-
-### And push command to `travis.yml`
-
-```yaml
-# travis.yml
-script:
-    # this is needed to generate /output first
-    - vendor/bin/statie generate source
-    # this works with content from /output
-    - vendor/bin/statie push-to-github tomasvotruba/tomasvotruba.cz --token=${GH_TOKEN}
-```
-
-**But this will push content on every opened PR, even if not merged. That's not what you want, is it?**
-
-So to push content only on changes accepted to `master` branch, just add:
-
-```yaml
-# travis.yml
-script:
-    - |
-      if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-          vendor/bin/statie push-to-github tomasvotruba/tomasvotruba.cz --token=${GH_TOKEN}
-      fi
-```
-
-That's better!
+Push a new change to your project or run a build from the Travis Dashboard and visit `https://<github-profile>.github.io/<repository-name>` to see generated output.
