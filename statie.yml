@@ -6,6 +6,7 @@ parameters:
         url: /
         title: Statie - Modern and Simple Static Site Generator in PHP
         ga_tracking_id: UA-4520387-28
+        algolia_api_key: 6ea3c9a817ba6a2f43a7e096348563b2
 
     generators:
         docs:
