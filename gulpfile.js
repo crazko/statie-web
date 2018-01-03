@@ -1,35 +1,25 @@
-var del = require('del');
-var fs = require('fs');
+const browserSync = require('browser-sync').create();
+const del = require('del');
+const gulp = require('gulp');
+const run = require('gulp-run');
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var gulpLoadPlugins = require('gulp-load-plugins');
-var plugins = gulpLoadPlugins();
-
-var paths = {
+const paths = {
   dist: 'output',
 };
 
-gulp.task('default', gulp.series(clean, generate, watch));
-gulp.task(clean);
-
-function clean() {
-  return del([paths.dist]);
-}
-
-function generate() {
-  return plugins.run('vendor/bin/statie generate source').exec();
-}
-
-function reload(done) {
+const clean = () => del([paths.dist]);
+const generate = () => run('vendor/bin/statie generate source').exec();
+const reload = done => {
   browserSync.reload();
   done();
 }
-
-function watch() {
+const watch = () => {
   browserSync.init({
     server: paths.dist
   });
 
   gulp.watch(['*.yml', 'source'], gulp.series(generate, reload));
 }
+
+gulp.task('default', gulp.series(clean, generate, watch));
+gulp.task(clean);

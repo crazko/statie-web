@@ -6,9 +6,7 @@
     "browser-sync": "^2.23.1",
     "del": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-run": "^1.7.1",
-    "gulp-watch": "^4.3.11"
+    "gulp-run": "^1.7.1"
   },
   "repository": {
     "type": "git",
