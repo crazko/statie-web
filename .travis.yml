@@ -7,7 +7,7 @@ branches:
         - master
 
 install:
-    - composer require symplify/statie
+    - composer install
 
 script:
     - vendor/bin/statie generate source

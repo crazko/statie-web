@@ -11,15 +11,35 @@ Open an issue or, better, fork this repository, make changes and send a pull req
 Build the site locally:
 
 - be sure you have [composer](https://getcomposer.org/) installed
-- install Statie
-	```shell
-	composer require symplify/statie
+- install dependencies (currently only Statie)
+	```
+	composer install
 	```
 - generate the site from the source
-	```shell
+	```
 	vendor/bin/statie generate source
 	```
 - run local PHP server
 	```
 	php -S localhost:8000 -t output
+	```
 - open [localhost:8000](http://localhost:8000) in your browser.
+
+## Enable live reload
+
+You can get rid of hitting refresh on every change you made and see your changes instantly with the use of the [Browsersync](https://www.browsersync.io/):
+
+- be sure you have [nodejs](https://nodejs.org/) with **npm** installed
+- install dependencies
+	```
+	npm install
+	```
+- run
+	```
+	gulp
+	```
+- it should run [specified tasks](https://github.com/crazko/statie-web/blob/master/gulpfile.js) and open a new window in your browser, typically at [localhost:3000](http://localhost:3000). If not, just open it.
+
+Now the site updates on every change in the source files.
+
+_Note: you don't need to have local PHP server running._

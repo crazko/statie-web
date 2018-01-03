@@ -1,0 +1,21 @@
+{
+  "name": "statie-web",
+  "description": "Documentation site for PHP static site generator Statie.",
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.23.1",
+    "del": "^3.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-run": "^1.7.1",
+    "gulp-watch": "^4.3.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crazko/statie-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/crazko/statie-web/issues"
+  },
+  "homepage": "https://github.com/crazko/statie-web#readme"
+}
