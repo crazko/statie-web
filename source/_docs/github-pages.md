@@ -16,7 +16,7 @@ git checkout -b gh-pages
 git push origin gh-pages
 ```
 
-## Create `$GH_TOKEN`
+## Allow Travis to Make Changes
 
 Travis is not allowed to modify your Github repository per se. We need to give it a correct rights explicitly - via tokens.
 
