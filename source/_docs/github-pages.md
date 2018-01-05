@@ -61,11 +61,9 @@ deploy:
 
 Such configuration will install all dependencies and generate output on every commit you push (also on every pull request) to the repository, but publish it only when changes are made upon the `master` branch (specified in the last row).
 
-Notice the usage of the variable `$GH_TOKEN` we just created - this adds Travis rights to make changes.
+You can read more about [building pull requests](https://docs.travis-ci.com/user/pull-requests/) or deploying to [Github Pages](https://docs.travis-ci.com/user/deployment/pages/) in the official documentation.
 
-You can read more about deploying to Github Pages in the [official documentation](https://docs.travis-ci.com/user/deployment/pages/).
-
-Now the Travis is able to push to your Github repository for you!
+Notice the usage of the variable `$GH_TOKEN` we just created - this adds Travis rights to make changes. Now the Travis is able to push to your Github repository for you!
 
 ---
 
