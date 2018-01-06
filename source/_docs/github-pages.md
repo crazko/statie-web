@@ -24,12 +24,12 @@ On Github go to [Settings](https://github.com/settings/profile) → [Developer S
 
 Visit `https://travis-ci.org/<github-profile>/<repository-name>` and **Activate repository**. Select **More options** → **Settings** and under **Environment variables** add new one:
 
-- Name: **GH_TOKEN**
+- Name: **GITHUB_TOKEN**
 - Value: generated token
 
 You don't have to be afraid of exposing the token to the public - it's securely hidden from the logs unless you purposely set it otherwise.
 
-[![GH_TOKEN is hidden from the log](/data/travis-gh-token-log.png)](https://www.travis-ci.org/crazko/statie-web/builds/323202354#L429)
+[![GITHUB_TOKEN is hidden from the log](/data/travis-gh-token-log.png)](https://www.travis-ci.org/crazko/statie-web/builds/323202354#L429)
 
 ## Configure Travis
 
@@ -40,10 +40,6 @@ language: php
 
 php: 7.1
 
-branches:
-    only:
-        - master
-
 install:
     - composer install
 
@@ -53,7 +49,7 @@ script:
 deploy:
     provider: pages
     skip_cleanup: true
-    github_token: $GH_TOKEN
+    github_token: $GITHUB_TOKEN
     local_dir: output
     on:
         branch: master
@@ -63,7 +59,7 @@ Such configuration will install all dependencies and generate output on every co
 
 You can read more about [building pull requests](https://docs.travis-ci.com/user/pull-requests/) or deploying to [Github Pages](https://docs.travis-ci.com/user/deployment/pages/) in the official documentation.
 
-Notice the usage of the variable `$GH_TOKEN` we just created - this adds Travis rights to make changes. Now the Travis is able to push to your Github repository for you!
+Notice the usage of the variable `$GITHUB_TOKEN` we just created - this adds Travis rights to make changes. Now the Travis is able to push to your Github repository for you!
 
 ---
 
