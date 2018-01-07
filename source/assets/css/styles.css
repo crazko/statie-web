@@ -30,13 +30,14 @@ pre {
 	display: inline-block;
 }
 
-.nav__item:not(:first-child) {
+.nav__item:not(:first-child):not(:last-child) {
 	margin-left: 1em;
 }
 
 .nav__link {
-	padding: 10px;
 	border-bottom: 2px solid transparent;
+	display: block;
+	padding: 10px;
 }
 
 .nav__link:hover {
@@ -91,6 +92,33 @@ pre {
 	font-size: .85em;
 	max-width: 500px;
 	overflow: hidden;
+	overflow-x: auto;
 	padding: 1.5em;
 	right: 1em;
+}
+
+/**
+ * Algolia search small resolution fix
+ * https://github.com/algolia/docsearch/issues/181#issuecomment-301730219
+ */
+@media (max-width: 575px) {
+	.algolia-autocomplete {
+		width: 100%;
+	}
+	.algolia-autocomplete .ds-dropdown-menu {
+		max-width: calc(100vw - 32px) !important;
+		min-width: calc(100vw - 32px) !important;
+		width: calc(100vw - 32px) !important;
+		margin-left: 16px !important;
+	}
+	.algolia-autocomplete .algolia-docsearch-suggestion--content {
+		width: 100% !important;
+		padding-left: 0 !important;
+	}
+	.algolia-autocomplete .algolia-docsearch-suggestion--content:before {
+		display: none !important;
+	}
+	.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+		display: none !important;
+	}
 }
