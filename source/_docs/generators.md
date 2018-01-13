@@ -110,7 +110,7 @@ parameters:
 
 ### Custom Object Sorting - `object_sorter`
 
-If you different object sorting rather then 9 → A, create it:
+If you need different object sorting rather then 9 → A, create it:
 
 ```php
 namespace MyWebsite\Statie;
@@ -125,8 +125,8 @@ final class DateObjectSorter implements ObjectSorterInterface
      */
     public function sort(array $files): array
     {
-        usort($files, function (AbstractFile $firstFile, AbstractFile $seconFile): int {
-            return $firstFile->getConfiguration()['date'] <=> $seconFile->getConfiguration()['date']; 
+        usort($files, function (AbstractFile $firstFile, AbstractFile $secondFile): int {
+            return $firstFile->getConfiguration()['date'] <=> $secondFile->getConfiguration()['date']; 
         });
 
         return $files;
