@@ -36,7 +36,7 @@ parameters:
             # an object that will wrap it's logic, you can add helper methods into it and use it in templates
             # Symplify\Statie\Renderable\File\File is used by default
             object: 'Symplify\Statie\Renderable\File\PostFile'
-			
+
             # it sorts files newer to older, it makes posts work on blog site by default 
             object_sorter: 'Symplify\Statie\Generator\FileNameObjectSorter'
 ```
