@@ -36,6 +36,9 @@ parameters:
             # an object that will wrap it's logic, you can add helper methods into it and use it in templates
             # Symplify\Statie\Renderable\File\File is used by default
             object: 'Symplify\Statie\Renderable\File\PostFile'
+			
+            # it sorts files newer to older, it makes posts work on blog site by default 
+            object_sorter: 'Symplify\Statie\Generator\FileNameObjectSorter'
 ```
 
 ## How to Add New Generator?
@@ -66,7 +69,7 @@ parameters:
             route_prefix: 'learn'
 ```
 
-### Optional
+### Custom Object - `object`
 
 If you need own object with super method, create it:
 
@@ -103,4 +106,41 @@ parameters:
         lectures:
             ...
             object: 'MyWebsite\Statie\LectureFile'
+```
+
+### Custom Object Sorting - `object_sorter`
+
+If you different object sorting rather then 9 → A, create it:
+
+```php
+namespace MyWebsite\Statie;
+
+use Symplify\Statie\Generator\Contract\ObjectSorterInterface;
+
+final class DateObjectSorter implements ObjectSorterInterface
+{
+    /**
+     * @param AbstractFile[] $files
+     * @return AbstractFile[]
+     */
+    public function sort(array $files): array
+    {
+        usort($files, function (AbstractFile $firstFile, AbstractFile $seconFile): int {
+            return $firstFile->getConfiguration()['date'] <=> $seconFile->getConfiguration()['date']; 
+        });
+
+        return $files;
+    }
+}
+```
+
+And configure it in `statie.yml`
+
+```yaml
+# statie.yml
+parameters:
+    generators:
+        lectures:
+            ...
+            object_sorter: 'MyWebsite\Statie\DateObjectSorter'
 ```
