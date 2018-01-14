@@ -1,0 +1,11 @@
+---
+layout: default
+page: community
+---
+
+{block content}
+	<h1 class="text-grey-darker">Community</h1>
+	<p>What have our community prepared.</p>
+	<h2>Articles</h2>
+	<h3 n:foreach="$articles as $article"><a href="{$article['url']}">{$article['title']}</a></h3>
+{/block}

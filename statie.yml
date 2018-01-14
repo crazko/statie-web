@@ -1,4 +1,5 @@
 imports:
+    - { resource: 'source/_data/articles.yml' }
     - { resource: 'source/_data/projects.yml' }
 
 parameters:
