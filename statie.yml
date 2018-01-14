@@ -2,6 +2,8 @@ imports:
     - { resource: 'source/_data/projects.yml' }
 
 parameters:
+    markdown_headline_anchors: true
+
     site:
         url: /
         title: Statie - Modern and Simple Static Site Generator in PHP
