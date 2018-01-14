@@ -7,5 +7,13 @@ page: community
 	<h1 class="text-grey-darker">Community</h1>
 	<p>What have our community prepared.</p>
 	<h2>Articles</h2>
-	<h3 n:foreach="$articles as $article"><a href="{$article['url']}">{$article['title']}</a></h3>
+	<ul n:inner-foreach="$articles as $article">
+		<li><h3><a href="{$article['url']}">{$article['title']}</a></h3></li>
+	</ul>
+
+	<p>Got one too? <a href="https://github.com/crazko/statie-web/edit/master/source/_data/articles.yml">Send a PR and share it with others</a>.</p>
+{/block}
+
+{block subcontent}
+	{include "projects"}
 {/block}
