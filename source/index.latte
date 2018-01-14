@@ -11,6 +11,7 @@ page: index
 		<a href="{$site['url']}docs/getting-started" class="bg-yellow-dark p-2 rounded w-32 inline-block text-xl text-center text-yellow-darkest no-underline hover:bg-yellow mr-2">See Docs</a>
 		<a href="https://github.com/Symplify/Statie" class="border p-2 rounded w-32 inline-block text-xl text-center text-white no-underline hover:bg-white hover:text-grey-darkest">Github</a>
 	</div>
+	<p class="text-teal-darker">or see what have our <a href="{$site['url']}community/" class="text-white no-underline hover:underline">community</a> prepared.
 	<pre class="terminal md:absolute"><code>$ composer require symplify/statie
 $ vendor/bin/statie generate source
 
@@ -40,22 +41,5 @@ $ php -S localhost:8000 -t output
 {/block}
 
 {block subcontent}
-	<section class="bg-yellow-dark text-grey-darkest">
-		<div class="max-w-xl mx-auto py-8 px-4 ">
-			<h1>Built with Statie</h1>
-			<p class="mb-4">Take a look on what have been built so far. Be sure to <a href="https://github.com/crazko/statie-web/edit/master/source/_data/projects.yml" class="text-black">add your project</a> as well!</p>
-
-			{foreach $projects as $project}
-				<div class="inline-block mr-2 mb-2 relative">
-					<a href="{$project['url']}" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
-						{$project['url']|replaceRE:'/.*\/{2}(w{3}\.)?/':''}
-					</a>
-
-					{ifset $project['repository']}
-						<a href="{$project['repository']}" class="project__repository">github</a>
-					{/ifset}
-				</div>
-			{/foreach}
-		</div>
-	</section>
+	{include "projects", projectsToShow => 6}
 {/block}

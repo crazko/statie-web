@@ -1,0 +1,11 @@
+parameters:
+    articles:
+        -
+            title: How to use Gulp to Rebuild on Change
+            url: https://www.tomasvotruba.cz/blog/2017/02/20/statie-how-to-run-it-locally/#minitip-use-gulp-work-for-you
+        -
+            title: How to re-generate and refresh static website in Statie?
+            url: https://romanvesely.com/statie-generate-and-refresh/
+        -
+            title: Implement a CSS preprocessor into Statie project
+            url: https://romanvesely.com/statie-with-css-preprocessor/
