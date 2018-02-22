@@ -18,3 +18,6 @@ parameters:
         -
             url: https://www.posobota.cz
             repository:
+        -
+            url: https://www.tomasfejfar.cz/
+            repository: https://github.com/tomasfejfar/tomasfejfar.cz
