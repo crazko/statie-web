@@ -21,3 +21,6 @@ parameters:
         -
             url: https://www.tomasfejfar.cz
             repository: https://github.com/tomasfejfar/tomasfejfar.cz
+        -
+            url: https://arkadiuszkondas.com/
+            repository: https://github.com/akondas/arkadiuszkondas.com
