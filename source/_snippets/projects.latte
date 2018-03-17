@@ -15,7 +15,7 @@
 			</div>
 
 			{ifset $projectsToShow}
-				{if count($projects) > $projectsToShow && $iterator->getCounter() === $projectsToShow}<a href="{$site['url']}community/" class="text-black">and more</a>...{/if}
+				{if count($projects) > $projectsToShow && $iterator->getCounter() === $projectsToShow}<a href="{$site['url']}community/" class="text-black">and more</a>…{/if}
 				{breakIf $iterator->getCounter() === $projectsToShow}
 			{/ifset}
 		{/foreach}
