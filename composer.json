@@ -1,5 +1,5 @@
 {
     "require": {
-        "symplify/statie": "^3.0"
+        "symplify/statie": "^4.0"
     }
 }
