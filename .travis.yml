@@ -8,6 +8,10 @@ branches:
 
 install:
     - composer install
+    - npm install
+
+before_script:
+    - npm run gulp -- -v
 
 script:
     - vendor/bin/statie generate source
