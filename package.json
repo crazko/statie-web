@@ -2,10 +2,13 @@
   "name": "statie-web",
   "description": "Documentation site for PHP static site generator Statie.",
   "private": true,
+  "scripts": {
+    "gulp": "gulp"
+  },
   "devDependencies": {
     "browser-sync": "^2.23.1",
     "del": "^3.0.0",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-run": "^1.7.1"
   },
   "repository": {
