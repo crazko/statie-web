@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: _layouts/default.latte
 page: index
 ---
 
@@ -41,5 +41,5 @@ $ php -S localhost:8000 -t output
 {/block}
 
 {block subcontent}
-	{include "projects", projectsToShow => 6}
+	{include "_snippets/projects.latte", projectsToShow => 6}
 {/block}

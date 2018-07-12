@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{include "head"}
+	{include "_snippets/head.latte"}
 </head>
 <body class="bg-teal-dark font-sans text-grey-darkest">
 	<header class="header max-w-xl mx-auto py-8 px-4">
-		{include "navigation"}
+		{include "_snippets/navigation.latte"}
 	</header>
 
 	{ifset #hero}
@@ -33,6 +33,6 @@
 		<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
 	</footer>
 
-{include "scripts"}
+{include "_snippets/scripts.latte"}
 </body>
 </html>
