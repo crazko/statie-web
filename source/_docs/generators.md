@@ -25,8 +25,8 @@ parameters:
             # directory, where to look for them
             path: '_posts'
 
-            # which layout to use, this will be expanded to "_layouts/post.latte"
-            layout: 'post'
+            # which layout to use
+            layout: '_layouts/post.latte'
 
             # and url prefix, e.g. file to path "_posts/2017-31-12-some-post.md" => "blog/2017/31/12/some-post"
             route_prefix: 'blog/:year/:month/:day'
@@ -34,7 +34,7 @@ parameters:
             # optional parameters
 
             # an object that will wrap it's logic, you can add helper methods into it and use it in templates
-            # Symplify\Statie\Renderable\File\File is used by default
+            # Symplify\Statie\Generator\Renderable\File\GeneratorFile is used by default
             object: 'Symplify\Statie\Renderable\File\PostFile'
 
             # it sorts files newer to older, it makes posts work on blog site by default 

@@ -11,7 +11,7 @@ composer require symplify/statie
 
 ## How to Generate and See the Website?
 
-Prepare content for Statie... . Simple 'index.latte' would do for start, but you can also inspire in [tomasvotruba.cz personal website](https://github.com/TomasVotruba/tomasvotruba.cz/tree/master/source).
+Prepare content for Statie... . Simple `index.latte` would do for start, but you can also inspire in [tomasvotruba.cz personal website](https://github.com/TomasVotruba/tomasvotruba.cz/tree/master/source).
 
 Generate static site from `/source` (argument) to `/output` (default value) in HTML:
 
