@@ -16,13 +16,18 @@ You can find all events as [standalone classes](https://pehapkari.cz/blog/2017/0
 Just create your subscriber
 
 ```php
+<?php
+
 namespace App\Statie\Twitter;
 
-use Symfony\Component\EventDispatcher\SubscriberInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symplify\Statie\Event\BeforeRenderEvent;
 
-final class TweetNewPostsSubscriber implements SubscriberInterface
+final class TweetNewPostsSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @return string[] 
+     */
     public static function getSubscribedEvents(): array
     {
         return [BeforeRenderEvent::class => 'tweetNewPosts'];
@@ -37,7 +42,7 @@ final class TweetNewPostsSubscriber implements SubscriberInterface
 
 And register as service in `statie.yml`
 
-```yml
+```yaml
 # statie.yml
 services:
    App\Statie\Twitter\TweetNewPostsSubscriber: ~

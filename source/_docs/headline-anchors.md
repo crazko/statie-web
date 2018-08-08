@@ -3,6 +3,8 @@ title: Headline Anchors
 id: 4
 ---
 
+**DEPRECATED** in Statie 4. Will be removed in Statie 5.0.
+
 Do you want to **share link to 3rd paragraph** of the post?
 
 When your hover any headline, an anchor link to it will appear on the left. Just click & share it!
