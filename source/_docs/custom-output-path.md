@@ -14,9 +14,8 @@ title: "Missing page, missing you"
 outputPath: "404.html"
 ---
 
-{block content}
-    ...
-{/block}
+Content...
+
 ```
 
 This is required e.g. for [Github Pages and 404 page](https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/).

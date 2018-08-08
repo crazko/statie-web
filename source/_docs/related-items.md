@@ -5,7 +5,7 @@ id: 6
 
 _Note: this applied only to Generated Elements._
 
-Do you write a post series? Help a reader and **show related posts bellow** using `relatedItems` Latte filter.
+Do you write a post series? Help a reader and **show related posts bellow** using `relatedItems` filter.
 
 ## How to Setup?
 
@@ -27,7 +27,9 @@ related_items: [1]
 ---
 ```
 
-### Add Section to Post template:
+### Add Section to Post Template
+
+In **Latte**:
 
 ```twig
 # _layout/post.latte
@@ -43,4 +45,24 @@ related_items: [1]
         {/foreach}
     </ul>
 </div>
+```
+
+Or in **Twig**:
+ 
+```twig
+# _layout/post.twig
+{% set relatedPosts = post|relatedItems %}
+
+{% if relatedPosts|length %}
+    <div>
+        <strong>Continue Reading</strong>
+        <ul>
+            {% for relatedPost in relatedPosts %}
+                <li>
+                    <a href="/{{ relatedPost.relativeUrl }}">{{ relatedPost.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 ```
