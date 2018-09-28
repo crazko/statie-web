@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="source/assets/img/logo.svg">
+</p>
+
 # [Statie.org](https://www.statie.org) [![Build Status](https://travis-ci.org/crazko/statie-web.svg?branch=master)](https://travis-ci.org/crazko/statie-web)
 
 This is the documentation site for [Statie](https://github.com/Symplify/Statie), the PHP static site generator.
