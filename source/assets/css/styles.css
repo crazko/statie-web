@@ -47,10 +47,6 @@ pre {
 	border-color: #f2d024;
 }
 
-.hero {
-	min-height: 40vh;
-}
-
 .main p,
 .main pre,
 .main ul {
@@ -93,6 +89,7 @@ pre {
 	overflow: hidden;
 	overflow-x: auto;
 	padding: 1.5em;
+	position: absolute;
 	right: 1em;
 }
 
