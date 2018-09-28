@@ -3,7 +3,7 @@
   "description": "Documentation site for PHP static site generator Statie.",
   "private": true,
   "scripts": {
-    "gulp": "gulp"
+    "start": "gulp"
   },
   "devDependencies": {
     "browser-sync": "^2.23.1",
