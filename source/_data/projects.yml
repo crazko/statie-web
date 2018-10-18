@@ -1,7 +1,10 @@
 parameters:
     projects:
         -
-            url: https://www.tomasvotruba.cz
+            url: https://friendsofphp.org
+            repository: https://github.com/tomasvotruba/friendsofphp.org
+        -
+            url: https://tomasvotruba.cz
             repository: https://github.com/tomasvotruba/tomasvotruba.cz
         -
             url: https://pehapkari.cz
