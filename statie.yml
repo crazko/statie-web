@@ -1,6 +1,6 @@
 imports:
-    - { resource: 'source/_data/articles.yml' }
-    - { resource: 'source/_data/projects.yml' }
+    - { resource: "source/_data/articles.yml" }
+    - { resource: "source/_data/projects.yml" }
 
 parameters:
     markdown_headline_anchors: true
@@ -13,8 +13,15 @@ parameters:
 
     generators:
         docs:
-            variable: 'doc'
-            variable_global: 'docs'
-            path: '_docs'
-            layout: '_layouts/docs.latte'
-            route_prefix: 'docs'
+            variable: "doc"
+            variable_global: "docs"
+            path: "_docs"
+            layout: "_layouts/docs.latte"
+            route_prefix: "docs"
+
+        tutorials:
+            variable: "tutorial"
+            variable_global: "tutorials"
+            path: "_tutorials"
+            layout: "_layouts/tutorial.latte"
+            route_prefix: "tutorials"
