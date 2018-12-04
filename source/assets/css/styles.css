@@ -21,6 +21,11 @@ pre {
 	font-size: 0.8em;
 }
 
+li ul,
+li ol {
+	margin-bottom: 0 !important;
+}
+
 .header a {
 	color: #fff;
 	text-decoration: none;
@@ -49,7 +54,8 @@ pre {
 
 .main p,
 .main pre,
-.main ul {
+.main ul,
+.main ol {
 	margin-bottom: 2em;
 }
 
