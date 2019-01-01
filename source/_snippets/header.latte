@@ -1,0 +1,12 @@
+<header class="header max-w-xl mx-auto py-4 sm:py-8 px-4">
+	<nav role="navigation" class="text-xl">
+		<ul class="nav list-reset sm:flex items-center text-center flex-wrap">
+			<li class="logo mb-4 sm:mb-0"><a href="{$site['url']}"><img src="/assets/img/logo.svg" alt=""></a></li>
+			<li class="sm:ml-8 inline-block"><a href="{$site['url']}docs/getting-started/" n:class="nav__link, isset($page) && $page === 'docs' ? nav__link--active">docs</a></li>
+			<li class="ml-4 inline-block"><a href="{$site['url']}tutorials/simple-blog/" n:class="nav__link, isset($tutorial) && $tutorial->getId() === 100 ? nav__link--active">tutorial</a></li>
+			<li class="ml-4 inline-block"><a href="{$site['url']}community/" n:class="nav__link, isset($page) && $page === 'community' ? nav__link--active">community</a></li>
+			<li class="ml-4 inline-block"><a href="https://github.com/Symplify/Statie" class="nav__link">github</a></li>
+			<li class="w-full sm:w-auto sm:float-right text-sm flex flex-1 justify-end mt-4 sm:mt-0"><input type="text" placeholder="search" class="search__input p-2 rounded w-full sm:w-24 md:w-32"></li>
+		</ul>
+	</nav>
+</header>

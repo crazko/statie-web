@@ -16,7 +16,7 @@ parameters:
             variable: "doc"
             variable_global: "docs"
             path: "_docs"
-            layout: "_layouts/docs.latte"
+            layout: "_layouts/doc.latte"
             route_prefix: "docs"
 
         tutorials:
