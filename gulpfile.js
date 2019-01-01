@@ -15,6 +15,7 @@ const reload = done => {
 };
 const watch = () => {
   browserSync.init({
+    open: false,
     server: paths.dist
   });
 
