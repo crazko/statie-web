@@ -46,7 +46,11 @@ Statie will do 3 steps:
 ```html
 <!-- source/_posts/2017-03-05-my-last-post.md -->
 
---- title: "This my Last Post, Ever!" --- This is my last post to all
+---
+title: "This my Last Post, Ever!"
+---
+
+This is my last post to all
 ```
 
 ### How to Show Post in Own Layout
@@ -71,15 +75,11 @@ That should be it.
 
 Save file, [look on the blog page](http://localhost:8000/blog) and see:
 
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-4/statie-blog.png" class="img-thumbnail">
-</div>
+![Statie blog](/data/statie-blog.png)
 
 When you click a post title:
 
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-4/statie-post.png" class="img-thumbnail">
-</div>
+![Statie post](/data/statie-post.png)
 
 ### ProTip: Change Post Url
 
