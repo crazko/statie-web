@@ -82,12 +82,8 @@ and open [localhost:8000](https://localhost:8000) in your browser.
 
 Voilá!
 
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-1/statie-cycle.gif">
-    <em>The same demo as above, just with Latte syntax</em>
-</div>
-
-<br>
+![Statie cycle](/data/statie-cycle.gif)
+The same demo as above, just with Latte syntax.
 
 ## Minitip: Use Gulp Work For You
 

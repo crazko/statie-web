@@ -27,13 +27,9 @@ layout: default
 {% endblock %}
 ```
 
-<br>
+If you use [smart Gulp script](/docs/getting-started#minitip-use-gulp-work-for-you), you can already check the page at [localhost:8000/contact](http://localhost:8000/contact).
 
-If you use [smart Gulp script](/blog/2017/02/20/statie-how-to-run-it-locally#minitip-use-gulp-work-for-you), you can already check the page at [localhost:8000/contact](http://localhost:8000/contact).
-
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-2/statie-contact.png" class="img-thumbnail">
-</div>
+![Statie contact](/data/statie-contact.png)
 
 ## How to decouple Information to Data Structures
 
@@ -54,7 +50,6 @@ In both cases, we modify the template the same way:
 ---
 layout: default
 ---
-
 
 {% block content %}
     <h1>First Hour is on me - Call me now!</h1>
@@ -170,9 +165,7 @@ contactMethods:
 
 Save file and [look on the contact page](http://localhost:8000/contact).
 
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-2/statie-contact.png" class="img-thumbnail">
-</div>
+![Statie contact](/data/statie-contact.png)
 
 ## 2. Global or Bigger Amount of Data
 
@@ -211,9 +204,7 @@ And that's it!
 
 Save file, [look on the contact page](http://localhost:8000/contact) and it still works!
 
-<div class="text-center">
-    <img src="/assets/images/posts/2017/statie-2/statie-contact.png" class="img-thumbnail">
-</div>
+![Statie contact](/data/statie-contact.png)
 
 ## Now You Know
 

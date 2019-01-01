@@ -126,7 +126,7 @@ To allow this flow, I recommend **keeping all IDs** that change from site to sit
 
 ### How To Do It
 
-I wrote about config in previous post - [go read it, if you missed it](/blog/2017/03/06/statie-2-how-to-add-contact-page-with-data#2-global-or-bigger-amount-of-data).
+Read about [how to handle configuration](/docs/configuration).
 
 So you should end up with this:
 
@@ -170,6 +170,6 @@ There is no need for that. You can group them to subdirs as you like:
 
 -   That using snippets will save lot of time.
 -   **That snippets are named by their filename**: `{% include "_snippest/fileName.twig" %}`.
--   **That snippets work the best with [global configuration](/blog/2017/03/06/statie-2-how-to-add-contact-page-with-data#2-global-or-bigger-amount-of-data)**.
+-   **That snippets work the best with [global configuration](/docs/data-structures#2-global-or-bigger-amount-of-data)**.
 
 Happy coding!
