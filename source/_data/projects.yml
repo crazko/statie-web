@@ -27,3 +27,9 @@ parameters:
         -
             url: https://arkadiuszkondas.com
             repository: https://github.com/akondas/arkadiuszkondas.com
+        -
+            url: https://gomonorepo.org
+            repository: https://github.com/TomasVotruba/gomonorepo.org/
+        -
+            url: https://gophp71.org
+            repository: https://github.com/tomasvotruba/gophp71.org
