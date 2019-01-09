@@ -11,7 +11,7 @@ This might be the simplest page to show all your posts:
 <!-- /source/blog.twig -->
 
 ---
-layout: default
+layout: "_layouts/default.twig"
 ---
 
 {% block content %}

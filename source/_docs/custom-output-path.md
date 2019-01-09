@@ -9,7 +9,7 @@ Do you need a different path? Use `outputPath` key in the configuration of the f
 
 ```html
 ---
-layout: default
+layout: "_layouts/default.twig"
 title: "Missing page, missing you"
 outputPath: "404.html"
 ---

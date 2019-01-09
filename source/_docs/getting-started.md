@@ -53,7 +53,7 @@ And add layout and block content to the `index.twig`:
 
 ```html
 ---
-layout: default
+layout: "_layouts/default.twig"
 ---
 
 {% block content %} Hi, my job is to help you grow any direction you choose! {%
