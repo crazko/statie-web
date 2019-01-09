@@ -65,7 +65,7 @@ parameters:
             variable: 'lecture'
             variable_global: 'lectures'
             path: '_lectures'
-            layout: 'lecture'
+            layout: '_layouts/lecture.latte'
             route_prefix: 'learn'
 ```
 

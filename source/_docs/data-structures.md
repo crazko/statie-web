@@ -10,7 +10,7 @@ The file name is relevant to the url - this file will be accessible at `/contact
 ```twig
 <!-- source/contact.twig -->
 ---
-layout: default
+layout: "_layouts/default.twig"
 ---
 
 {% block content %}
@@ -48,7 +48,7 @@ In both cases, we modify the template the same way:
 ```twig
 <!-- source/contact.twig -->
 ---
-layout: default
+layout: "_layouts/default.twig"
 ---
 
 {% block content %}
@@ -121,7 +121,7 @@ Now we put this data to Yaml format and place them to our `contact.twig`.
 ```twig
 <!-- source/contact.twig -->
 ---
-layout: default
+layout: "_layouts/default.twig"
 contactMethods:
     -
         type: Phone
