@@ -1,9 +1,11 @@
 html {
-	overflow-y: scroll;
-}
-
-body {
+	background: #38a89d;
+	font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
 	font-size: 16px;
+	line-height: 1.5;
+	overflow-y: scroll;
 }
 
 a {
@@ -19,6 +21,11 @@ h3 {
 
 pre {
 	font-size: 0.8em;
+}
+
+li ul,
+li ol {
+	margin-bottom: 0 !important;
 }
 
 .header a {
@@ -49,7 +56,8 @@ pre {
 
 .main p,
 .main pre,
-.main ul {
+.main ul,
+.main ol {
 	margin-bottom: 2em;
 }
 
