@@ -7,7 +7,7 @@ Statie uses common [EventDispatcher](https://symfony.com/doc/current/components/
 
 ### Available Events
 
-You can find all events as [standalone classes](https://pehapkari.cz/blog/2017/07/12/the-bulletproof-event-naming-for-symfony-event-dispatcher/) in [/src/Event](https://github.com/Symplify/Statie/blob/src/Event) directory:
+You can find all events as [standalone classes](https://pehapkari.cz/blog/2017/07/12/the-bulletproof-event-naming-for-symfony-event-dispatcher/) in [/src/Event](https://github.com/Symplify/Statie/tree/master/src/Event) directory:
 
 - `BeforeRenderEvent` - is called after all GeneratorElement and Files and before they will be saved to file system
 
