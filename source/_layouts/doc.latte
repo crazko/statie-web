@@ -1,36 +1,17 @@
+{layout '_layouts/default.latte'}
+
 {var $page = 'docs'}
 
-<!DOCTYPE html>
-<html lang="en">
-{include "_snippets/head.latte"}
-
-<body>
-	{include "_snippets/header.latte"}
-
-	{ifset #hero}
-		<div class="hero max-w-xl mx-auto py-8 px-4 text-white flex flex-col justify-end text-white relative">
-			{include hero}
+{block maincontent}
+	<div class="md:flex md:flex-row-reverse">
+		<div class="content md:flex-1 md:min-w-0">
+			<h1 class="text-grey-darker">{$title}</h1>
+			{$doc->getContent()|noescape}
 		</div>
-	{/ifset}
 
-	<main role="main" class="main bg-white">
-		<div class="max-w-xl mx-auto py-8 px-4">
-			<div class="md:flex md:flex-row-reverse">
-				<div class="content md:flex-1 md:min-w-0">
-					<h1 class="text-grey-darker">{$title}</h1>
-					{$doc->getContent()|noescape}
-				</div>
-
-				<aside class="sidebar md:mr-8">
-					{include "_snippets/docs-navigation.latte", type => "basic", items => [1, 2, 4, 5]}
-					{include "_snippets/docs-navigation.latte", type => "advanced", items => [10, 11, 6, 7, 8, 9]}
-				</aside>
-			</div>
-		</div>
-	</main>
-
-	{block subcontent}{/block}
-
-	{include "_snippets/footer.latte"}
-</body>
-</html>
+		<aside class="sidebar md:mr-8">
+			{include "_snippets/docs-navigation.latte", type => "basic", items => [1, 2, 4, 5]}
+			{include "_snippets/docs-navigation.latte", type => "advanced", items => [10, 11, 6, 7, 8, 9]}
+		</aside>
+	</div>
+{/block}
