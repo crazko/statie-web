@@ -14,7 +14,7 @@ before_script:
     - npm start -- -v
 
 script:
-    - vendor/bin/statie generate source
+    - npm run build
 
 deploy:
     provider: pages
