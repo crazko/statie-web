@@ -20,14 +20,14 @@ Build the site locally:
 -   run local PHP server `php -S localhost:8000 -t output`
 -   open [localhost:8000](http://localhost:8000) in your browser.
 
-## Enable live reload
+## Enable live reload (recommended)
 
 You can get rid of hitting refresh on every change you made and see your changes instantly with the use of the [Browsersync](https://www.browsersync.io/):
 
 -   be sure you have [nodejs](https://nodejs.org/) with **npm** installed
 -   install dependencies `npm install`
 -   run `npm start`
--   it should run [specified tasks](https://github.com/crazko/statie-web/blob/master/gulpfile.js) and open a new window in your browser, typically at [localhost:3000](http://localhost:3000). If not, just open it.
+-   open [localhost:3000](http://localhost:3000) in your browser
 
 Now the site updates on every change in the source files.
 
