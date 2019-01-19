@@ -1,6 +1,6 @@
 {
     "require": {
         "php": "^7.1",
-        "symplify/statie": "^5.2"
+        "symplify/statie": "^5.3"
     }
 }

@@ -3,7 +3,8 @@ imports:
     - { resource: "source/_data/projects.yml" }
 
 parameters:
-    markdown_headline_anchors: true
+    # turn post headlines to anchors to make sharing easier
+    post_headline_linker_enabled: true
 
     site:
         url: /
