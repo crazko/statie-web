@@ -33,3 +33,6 @@ parameters:
         -
             url: https://gophp71.org
             repository: https://github.com/tomasvotruba/gophp71.org
+        -
+            url: https://janmikes.cz/
+            repository: https://github.com/JanMikes/janmikes.cz
