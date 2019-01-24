@@ -20,7 +20,11 @@ Enable it in `statie.yml`
 ```yaml
 # statie.yml
 parameters:
-    markdown_headline_anchors: true
+    post_headline_linker_enabled: true
+	
+	 # default values
+    post_headline_linker_min_level: 1
+    post_headline_linker_max_level: 6
 ```
 
 ### Add style to your css
