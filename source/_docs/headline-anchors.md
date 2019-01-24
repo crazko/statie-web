@@ -21,8 +21,8 @@ Enable it in `statie.yml`
 # statie.yml
 parameters:
     post_headline_linker_enabled: true
-	
-	 # default values
+
+    # default values
     post_headline_linker_min_level: 1
     post_headline_linker_max_level: 6
 ```
