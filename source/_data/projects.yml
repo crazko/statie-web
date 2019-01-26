@@ -36,3 +36,6 @@ parameters:
         -
             url: https://janmikes.cz/
             repository: https://github.com/JanMikes/janmikes.cz
+        -
+            url: https://ceskyopensource.cz
+            repository: https://github.com/tomasvotruba/ceskyopensource.cz
