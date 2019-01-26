@@ -29,12 +29,12 @@ parameters:
             repository: https://github.com/akondas/arkadiuszkondas.com
         -
             url: https://gomonorepo.org
-            repository: https://github.com/TomasVotruba/gomonorepo.org/
+            repository: https://github.com/TomasVotruba/gomonorepo.org
         -
             url: https://gophp71.org
             repository: https://github.com/tomasvotruba/gophp71.org
         -
-            url: https://janmikes.cz/
+            url: https://janmikes.cz
             repository: https://github.com/JanMikes/janmikes.cz
         -
             url: https://ceskyopensource.cz
