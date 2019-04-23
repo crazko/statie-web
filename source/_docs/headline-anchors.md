@@ -3,62 +3,36 @@ title: Headline Anchors
 id: 4
 ---
 
-**DEPRECATED** in Statie 4. Will be removed in Statie 5.0.
-
-Do you want to **share link to 3rd paragraph** of the post?
-
-When your hover any headline, an anchor link to it will appear on the left. Just click & share it!
+Do you want to **share link to 3rd paragraph** of the post? Statie adds a link to all headings of [Genereated Elements](/docs/generators/) (e.g. posts; _not_ to standalone pages like index or contact). You can apply some styling to show an anchor.
 
 ![Headline Anchors](/data/github-like-headline-anchors.png)
 
-_Note: this applied only to Generated Elements (e.g. posts etc.), not to standalone pages (e.g. index, contact)._
+## Add style to your css
 
-## How to Setup?
-
-Enable it in `statie.yml`
-
-```yaml
-# statie.yml
-parameters:
-    post_headline_linker_enabled: true
-
-    # default values
-    post_headline_linker_min_level: 1
-    post_headline_linker_max_level: 6
-```
-
-### Add style to your css
-
-Feel free to modify this sample to your needs:
+Feel free to modify this sample to accommodate your needs:
 
 ```css
-/* anchors for post headlines */
-.anchor {
-	padding-right: 0.3em;
-	float: left;
-	margin-left: -0.9em;
-}
-
-.anchor,
-.anchor:hover {
-	text-decoration: none;
-}
-
-h1 .anchor .anchor-icon,
-h2 .anchor .anchor-icon,
-h3 .anchor .anchor-icon {
-	visibility: hidden;
-}
-
-h1:hover .anchor-icon,
-h2:hover .anchor-icon,
-h3:hover .anchor-icon {
-	visibility: inherit;
-}
-
-.anchor-icon {
-	display: inline-block;
+h2 a:hover::before,
+h3 a:hover::before,
+h4 a:hover::before {
+    display: inline-block;
+    content: "#";
+    padding-right: .5ch;
+    margin-left: -1.5ch;
+    border: 0 !important;
 }
 ```
 
-That's it!
+When your hover any heading, an anchor will appear to the left of the heading. Just click & copy the url & share it!
+
+## Removing headline links
+
+In some cases this behaviour may not be appropriate - you can disable it easily with following configuration in `statie.yml` file:
+
+```yaml
+parameters:
+    generators:
+		posts:
+			# Disable anchors for all posts
+			has_headline_anchors: false
+```
