@@ -32,7 +32,7 @@ In some cases this behaviour may not be appropriate - you can disable it easily 
 ```yaml
 parameters:
     generators:
-		posts:
+        posts:
             # Disable anchors for all posts
             has_headline_anchors: false
 ```
