@@ -33,6 +33,6 @@ In some cases this behaviour may not be appropriate - you can disable it easily 
 parameters:
     generators:
 		posts:
-			# Disable anchors for all posts
+            # Disable anchors for all posts
             has_headline_anchors: false
 ```
