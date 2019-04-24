@@ -34,5 +34,5 @@ parameters:
     generators:
 		posts:
 			# Disable anchors for all posts
-			has_headline_anchors: false
+            has_headline_anchors: false
 ```
