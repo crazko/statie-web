@@ -3,18 +3,16 @@ title: Headline Anchors
 id: 4
 ---
 
-Do you want to **share link to 3rd paragraph** of the post? Statie adds a link to all headings of [Genereated Elements](/docs/generators/) (e.g. posts; _not_ to standalone pages like index or contact) by default. You can apply some styling to show an anchor.
+Do you want to **share link to 3rd paragraph** of the post? Statie adds a link to all headings of [Genereated Elements](/docs/generators/) (e.g. posts; _not_ to standalone pages like index or contact) by default. Highest level heading `h1` and those containing links are excluded. You can apply some styling to show an anchor.
 
 ![Headline Anchors](/data/github-like-headline-anchors.png)
 
 ## Add style to your css
 
-Feel free to modify this sample to accommodate your needs:
+Anchor links have class `heading-anchor` for easier selection. Feel free to modify this sample to accommodate your needs:
 
 ```css
-h2 a:hover::before,
-h3 a:hover::before,
-h4 a:hover::before {
+.heading-anchor:hover::before {
     display: inline-block;
     content: "#";
     padding-right: .5ch;
