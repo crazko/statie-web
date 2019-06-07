@@ -10,9 +10,9 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
-    "browser-sync": "^2.23.1",
+    "browser-sync": "^2.26.7",
     "del": "^3.0.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-run": "^1.7.1",
     "tailwindcss": "^0.7.3"
