@@ -10,9 +10,6 @@ parameters:
             url: https://pehapkari.cz
             repository: https://github.com/pehapkari/pehapkari.cz
         -
-            url: https://romanvesely.com
-            repository: https://github.com/crazko/romanvesely.com
-        -
             url: https://ikvasnica.com
             repository: https://github.com/ikvasnica/ikvasnica.com
         -
