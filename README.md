@@ -1,6 +1,12 @@
 <p align="center">
     <img src="source/assets/img/logo.svg">
 </p>
+<h1 align="center">DEPRECATED since 2020-03</h1>
+
+- https://www.tomasvotruba.com/blog/2020/03/09/art-of-letting-go/
+- https://www.tomasvotruba.com/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper/
+
+---
 
 # [Statie.org](https://www.statie.org) [![Build Status](https://travis-ci.org/crazko/statie-web.svg?branch=master)](https://travis-ci.org/crazko/statie-web)
 
