@@ -36,3 +36,6 @@ parameters:
         -
             url: https://ceskyopensource.cz
             repository: https://github.com/tomasvotruba/ceskyopensource.cz
+        -
+            url: https://celyes.now.sh/blog
+            repository: https://github.com/celyes/website-src
