@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Publish Content To Github Pages with Travis | Statie - Modern and Simple Static Site Generator in PHP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" integrity="sha256-DJJDQyzflMYiUb2jX3gilm9m3gAkHPC4WLv9BAk4rTE=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+	<link rel="stylesheet" href="/assets/css/styles.css?202004071218">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js" integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-bash.min.js" integrity="sha256-SCZNeXkzfrzH5HaOFT+SJ3dAe+lfCvSX0kC1e2HH8mc=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js" integrity="sha256-YiD4iV/2ItR7G+/f9kSqSxPn/7TYqX9vFxKdZ8mcx5w=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
+	integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-twig.min.js" integrity="sha256-zLGURZSfopdiruX4pMd0uHs7xPYisO2tS+W7J3FeDsU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="bg-grey-darkest p-4 text-yellow-dark shadow-inner" style="position: sticky; top: 0; z-index: 10;"><span class="uppercase text-white font-bold">Notice:</span> Statie <a href="https://www.tomasvotruba.com/blog/2020/03/09/art-of-letting-go/" class="text-yellow">is deprecated</a> as of March 2020. You can switch to <a href="https://www.tomasvotruba.com/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper/" class="text-yellow">Symfony Static Dumper</a>.</div>
+
+<header class="header max-w-xl mx-auto py-4 sm:py-8 px-4">
+	<nav role="navigation" class="text-xl">
+		<ul class="nav list-reset sm:flex items-center text-center flex-wrap">
+			<li class="logo mb-4 sm:mb-0"><a href="/"><img src="/assets/img/logo.svg" alt=""></a></li>
+			<li class="sm:ml-8 inline-block"><a href="/docs/getting-started/" class="nav__link nav__link--active">docs</a></li>
+			<li class="ml-4 inline-block"><a href="/tutorials/simple-blog/" class="nav__link">tutorial</a></li>
+			<li class="ml-4 inline-block"><a href="/community/" class="nav__link">community</a></li>
+			<li class="ml-4 inline-block"><a href="https://github.com/Symplify/Statie" class="nav__link">github</a></li>
+			<li class="w-full sm:w-auto sm:float-right text-sm flex flex-1 justify-end mt-4 sm:mt-0"><input type="text" placeholder="search" class="search__input p-2 rounded w-full sm:w-24 md:w-32"></li>
+		</ul>
+	</nav>
+</header>
+
+
+	<main role="main" class="main bg-white">
+		<div class="max-w-xl mx-auto py-8 px-4">
+				<div class="md:flex md:flex-row-reverse">
+		<div class="content md:flex-1 md:min-w-0">
+			<h1 class="text-grey-darker">Publish Content To Github Pages with Travis</h1>
+			<p>The best way to use Statie is to have a <a href="https://github.com/TomasVotruba/tomasvotruba.cz">website on Github repository</a>, use <a href="https://pages.github.com/">Github Pages</a> and <a href="https://www.travis-ci.org/">Travis</a> to host and update generated content for you.</p>
+<p>How to Setup?</p>
+<h2>Add <code>gh-pages</code> Branch to the Repository</h2>
+<p>Github Pages usually shows the content of the special branch named <code>gh-pages</code>. Use following commands to create it:</p>
+<pre><code class="language-bash">git checkout -b gh-pages
+git push origin gh-pages</code></pre>
+<h2>Allow Travis to Make Changes</h2>
+<p>Travis is not allowed to modify your Github repository per se. We need to give it a correct rights explicitly - via tokens.</p>
+<p>On Github go to <a href="https://github.com/settings/profile">Settings</a> → <a href="https://github.com/settings/developers">Developer Settings</a> → <a href="https://github.com/settings/tokens">Personal Access Tokens</a> → <strong>Generate New Token</strong> and select <strong>repo</strong> scope. Give it a recognisable name and copy generated token afterwards.</p>
+<p>Visit <code>https://travis-ci.org/&lt;github-profile&gt;/&lt;repository-name&gt;</code> and <strong>Activate repository</strong>. Select <strong>More options</strong> → <strong>Settings</strong> and under <strong>Environment variables</strong> add new one:</p>
+<ul>
+<li>Name: <strong>GITHUB_TOKEN</strong></li>
+<li>Value: generated token</li>
+</ul>
+<p>You don't have to be afraid of exposing the token to the public - it's securely hidden from the logs unless you purposely set it otherwise.</p>
+<p><a href="https://www.travis-ci.org/crazko/statie-web/builds/323202354#L429"><img src="/data/travis-gh-token-log.png" alt="GITHUB_TOKEN is hidden from the log" /></a></p>
+<h2>Configure Travis</h2>
+<p>In the root of your project's directory create <code>.travis.yml</code> file with the following content:</p>
+<pre><code class="language-yaml">language: php
+
+php: 7.1
+
+install:
+    - composer install
+
+script:
+    - vendor/bin/statie generate source
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: output
+    on:
+        branch: master</code></pre>
+<p>Such configuration will install all dependencies and generate output on every commit you push (also on every pull request) to the repository, but publish it only when changes are made upon the <code>master</code> branch (specified in the last row).</p>
+<p>You can read more about <a href="https://docs.travis-ci.com/user/pull-requests/">building pull requests</a> or deploying to <a href="https://docs.travis-ci.com/user/deployment/pages/">Github Pages</a> in the official documentation.</p>
+<p>Notice the usage of the variable <code>$GITHUB_TOKEN</code> we just created - this adds Travis rights to make changes. Now the Travis is able to push to your Github repository for you!</p>
+<hr />
+<p>Push a new change to your project or run a build from the Travis Dashboard and visit <code>https://&lt;github-profile&gt;.github.io/&lt;repository-name&gt;</code> to see generated output.</p>
+		</div>
+
+		<aside class="sidebar md:mr-8">
+<div class="uppercase mb-4">basic</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/getting-started" class="block py-2 no-underline hover:underline">Getting Started</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/configuration" class="block py-2 no-underline hover:underline">Configuration</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/headline-anchors" class="block py-2 no-underline hover:underline">Headline Anchors</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/custom-output-path" class="block py-2 no-underline hover:underline">Custom Output Path</a>
+		</li>
+</ul>
+<div class="uppercase mb-4">advanced</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/data-structures" class="block py-2 no-underline hover:underline">Data Structures</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/snippets" class="block py-2 no-underline hover:underline">Snippets</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/related-items" class="block py-2 no-underline hover:underline">Related Items</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/generators" class="block py-2 no-underline hover:underline">Generators</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/hooks" class="block py-2 no-underline hover:underline">Hooks</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/github-pages" class="block py-2 no-underline hover:underline text-teal-dark">Publish Content To Github Pages with Travis</a>
+		</li>
+</ul>
+		</aside>
+	</div>
+		</div>
+	</main>
+
+	
+<div class="bg-grey-light">
+	<div class="max-w-xl mx-auto p-4 text-right text-sm text-grey-darker">
+		Want to make a suggestion? <a href="https://github.com/crazko/statie-web" class="text-grey-darkest">Help us improve</a> the content.
+	</div>
+</div>
+
+<footer role="contentinfo" class="footer text-center p-4 text-white">
+	<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; 2020, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
+	<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
+</footer>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4520387-28"></script>
+<script>
+	// Disable when running locally
+	if (window.location.hostname === 'localhost') {
+		window['ga-disable-' + "UA-4520387-28"] = true;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', "UA-4520387-28");
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+	docsearch({
+		apiKey: "6ea3c9a817ba6a2f43a7e096348563b2",
+		indexName: 'statie',
+		inputSelector: '.search__input',
+		debug: true // Set debug to true if you want to inspect the dropdown
+	});
+</script>
+</body>
+</html>

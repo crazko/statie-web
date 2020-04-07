@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Data Structures | Statie - Modern and Simple Static Site Generator in PHP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" integrity="sha256-DJJDQyzflMYiUb2jX3gilm9m3gAkHPC4WLv9BAk4rTE=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+	<link rel="stylesheet" href="/assets/css/styles.css?202004071218">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js" integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-bash.min.js" integrity="sha256-SCZNeXkzfrzH5HaOFT+SJ3dAe+lfCvSX0kC1e2HH8mc=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js" integrity="sha256-YiD4iV/2ItR7G+/f9kSqSxPn/7TYqX9vFxKdZ8mcx5w=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
+	integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-twig.min.js" integrity="sha256-zLGURZSfopdiruX4pMd0uHs7xPYisO2tS+W7J3FeDsU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="bg-grey-darkest p-4 text-yellow-dark shadow-inner" style="position: sticky; top: 0; z-index: 10;"><span class="uppercase text-white font-bold">Notice:</span> Statie <a href="https://www.tomasvotruba.com/blog/2020/03/09/art-of-letting-go/" class="text-yellow">is deprecated</a> as of March 2020. You can switch to <a href="https://www.tomasvotruba.com/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper/" class="text-yellow">Symfony Static Dumper</a>.</div>
+
+<header class="header max-w-xl mx-auto py-4 sm:py-8 px-4">
+	<nav role="navigation" class="text-xl">
+		<ul class="nav list-reset sm:flex items-center text-center flex-wrap">
+			<li class="logo mb-4 sm:mb-0"><a href="/"><img src="/assets/img/logo.svg" alt=""></a></li>
+			<li class="sm:ml-8 inline-block"><a href="/docs/getting-started/" class="nav__link nav__link--active">docs</a></li>
+			<li class="ml-4 inline-block"><a href="/tutorials/simple-blog/" class="nav__link">tutorial</a></li>
+			<li class="ml-4 inline-block"><a href="/community/" class="nav__link">community</a></li>
+			<li class="ml-4 inline-block"><a href="https://github.com/Symplify/Statie" class="nav__link">github</a></li>
+			<li class="w-full sm:w-auto sm:float-right text-sm flex flex-1 justify-end mt-4 sm:mt-0"><input type="text" placeholder="search" class="search__input p-2 rounded w-full sm:w-24 md:w-32"></li>
+		</ul>
+	</nav>
+</header>
+
+
+	<main role="main" class="main bg-white">
+		<div class="max-w-xl mx-auto py-8 px-4">
+				<div class="md:flex md:flex-row-reverse">
+		<div class="content md:flex-1 md:min-w-0">
+			<h1 class="text-grey-darker">Data Structures</h1>
+			<p>First, <strong>create a file</strong> in the <code>/source</code> directory called <code>contact.twig</code>.</p>
+<p>The file name is relevant to the url - this file will be accessible at <code>/contact</code>.</p>
+<pre><code class="language-twig">&lt;!-- source/contact.twig --&gt;
+---
+layout: "_layouts/default.twig"
+---
+
+{% block content %}
+    &lt;h1&gt;First Hour is on me - Call me now!&lt;/h1&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Phone: &lt;a href="tel:123456789"&gt;123 456 789&lt;/a&gt;a&gt;&lt;/li&gt;
+        &lt;li&gt;Email: &lt;a href="mailto:hi@gmail.com"&gt;hi@gmail.com&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;Twitter: &lt;a href="https://twitter.com/wise-programmer"&gt;@wiseProgrammer&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;Facebook: &lt;a href="https://facebook.com/wise-programmer"&gt;Wise Programmer&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;LinkedIn: &lt;a href="https://linkedin.com/wise-programmer"&gt;Wise Programmer&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;Github: &lt;a href="https://github.com/wise-programmer"&gt;@WiseProgrammer&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+{% endblock %}</code></pre>
+<p>If you use <a href="/docs/getting-started#minitip-use-gulp-work-for-you">smart Gulp script</a>, you can already check the page at <a href="http://localhost:8000/contact">localhost:8000/contact</a>.</p>
+<p><img src="/data/statie-contact.png" alt="Statie contact" /></p>
+<h2>How to decouple Information to Data Structures</h2>
+<p>We are programmers and we don't like data coupled to the code. You wouldn't put your repository class to your <code>Homepage.twig</code> template, would you?</p>
+<p>What if...</p>
+<ul>
+<li>we want to <strong>add new contact</strong>,</li>
+<li><strong>change it</strong></li>
+<li>or <strong>use in multiple parts</strong> of website.</li>
+</ul>
+<p>There are 2 basic ways to data structures. It depends, whether you need it locally or globally.</p>
+<p>In both cases, we modify the template the same way:</p>
+<pre><code class="language-twig">&lt;!-- source/contact.twig --&gt;
+---
+layout: "_layouts/default.twig"
+---
+
+{% block content %}
+    &lt;h1&gt;First Hour is on me - Call me now!&lt;/h1&gt;
+
+    &lt;ul&gt;
+        {% for contactMethod in contactMethods %}
+            &lt;li&gt;
+                {{ contactMethod.type }}:
+                &lt;a href="{{ contactMethod.link }}"&gt;{{ contactMethod.name }}&lt;/a&gt;
+            &lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+{% endblock %}</code></pre>
+<h2>1. Local Values in between <code>---</code></h2>
+<h3>How Does it Work?</h3>
+<p>Everything located between two &quot;triple-hyphens&quot; (<code>---</code>) will be accessible <strong>only in the one template as variables</strong>.</p>
+<p>In <em>code words</em>:</p>
+<pre><code class="language-html">---
+key: "value"
+---
+
+{{ key }}
+&lt;!-- shows "value" --&gt;</code></pre>
+<h3>How to Use it?</h3>
+<p>All we need for our contact page is simple array. Putting data above to an array in PHP would look like this:</p>
+<pre><code class="language-php">$contactMethods = [
+    [
+        'type' =&gt; 'Phone',
+        'link' =&gt; 'tel:123456789',
+        'name' =&gt; '123 456 789'
+    ], [
+        'type' =&gt; 'Email',
+        'link' =&gt; 'mailto:hi@gmail.com',
+        'name' =&gt; 'hi@gmail.com'
+    ], [
+        'type' =&gt; 'Twitter',
+        'link' =&gt; 'https://twitter.com/wise-programmer',
+        'name' =&gt; '@wiseProgrammer'
+    ], [
+        'type' =&gt; 'Facebook',
+        'link' =&gt; 'https://facebook.com/wise-programmer',
+        'name' =&gt; 'Wise Programmer'
+    ], [
+        'type' =&gt; 'LinkedIn',
+        'link' =&gt; 'https://linkedin.com/wise-programmer',
+        'name' =&gt; 'Wise Programmer'
+    ], [
+        'type' =&gt; 'Github',
+        'link' =&gt; 'https://github.com/wise-programmer',
+        'name' =&gt; '@WiseProgrammer'
+    ]
+];</code></pre>
+<p>Now we put this data to Yaml format and place them to our <code>contact.twig</code>.</p>
+<pre><code class="language-twig">&lt;!-- source/contact.twig --&gt;
+---
+layout: "_layouts/default.twig"
+contactMethods:
+    -
+        type: Phone
+        link: tel:123456789
+        name: 123 456 789
+    -
+        type: Email
+        link: mailto:hi@gmail.com
+        name: hi@gmail.com
+    -
+        type: Twitter
+        link: https://twitter.com/wise-programmer
+        name: @wiseProgrammer
+    -
+        type: Facebook
+        link: https://facebook.com/wise-programmer
+        name: Wise Programmer
+    -
+        type: LinkedIn
+        link: https://linkedin.com/wise-programmer
+        name: Wise Programmer
+    -
+        type: Github
+        link: https://github.com/wise-programmer
+        name: @WiseProgrammer
+---
+
+{% block content %}
+    &lt;h1&gt;First Hour is on me - Call me now!&lt;/h1&gt;
+
+    &lt;ul&gt;
+        {% for contactMethod in contactMethods %}
+            &lt;li&gt;
+                {{ contactMethod.type }}:
+                &lt;a href="{{ contactMethod.link }}"&gt;{{ contactMethod.name }}&lt;/a&gt;
+            &lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+{% endblock %}</code></pre>
+<p>Save file and <a href="http://localhost:8000/contact">look on the contact page</a>.</p>
+<p><img src="/data/statie-contact.png" alt="Statie contact" /></p>
+<h2>2. Global or Bigger Amount of Data</h2>
+<p>I use this option in 2 cases:</p>
+<ul>
+<li><strong>I need those data globally</strong> (e.g. Google Analytics Code)</li>
+<li><strong>those data are 5+ lines big and they make template less readable</strong></li>
+</ul>
+<p>I would use this option in this case.</p>
+<h3>How does it Work?</h3>
+<p>Statie uses <code>statie.yml</code> in the root directory and its <code>parameters</code> section.</p>
+<p>As convention, I put global data to <code>/source/_data</code> directory. But it's up to you, where you put it.</p>
+<h3>How to Use it?</h3>
+<p>We simple move whole <code>contactMethods</code> to this file:</p>
+<pre><code class="language-yaml"># /source/_data/contacts.yml
+parameters:
+    contactMethods: ...</code></pre>
+<p>And import it in <code>statie.yml</code>:</p>
+<pre><code class="language-yaml"># statie.yml
+imports:
+    - { resource: "source/_data/contacts.yml" }</code></pre>
+<p>And that's it!</p>
+<p>Save file, <a href="http://localhost:8000/contact">look on the contact page</a> and it still works!</p>
+<p><img src="/data/statie-contact.png" alt="Statie contact" /></p>
+<h2>Now You Know</h2>
+<ul>
+<li>How to add data to your Statie page.</li>
+<li><strong>Where to put them for local and global access</strong>.</li>
+<li><strong>That its convention</strong> to use <code>/source/_data/&lt;some-data&gt;.yml</code> naming.</li>
+</ul>
+		</div>
+
+		<aside class="sidebar md:mr-8">
+<div class="uppercase mb-4">basic</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/getting-started" class="block py-2 no-underline hover:underline">Getting Started</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/configuration" class="block py-2 no-underline hover:underline">Configuration</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/headline-anchors" class="block py-2 no-underline hover:underline">Headline Anchors</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/custom-output-path" class="block py-2 no-underline hover:underline">Custom Output Path</a>
+		</li>
+</ul>
+<div class="uppercase mb-4">advanced</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/data-structures" class="block py-2 no-underline hover:underline text-teal-dark">Data Structures</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/snippets" class="block py-2 no-underline hover:underline">Snippets</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/related-items" class="block py-2 no-underline hover:underline">Related Items</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/generators" class="block py-2 no-underline hover:underline">Generators</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/hooks" class="block py-2 no-underline hover:underline">Hooks</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/github-pages" class="block py-2 no-underline hover:underline">Publish Content To Github Pages with Travis</a>
+		</li>
+</ul>
+		</aside>
+	</div>
+		</div>
+	</main>
+
+	
+<div class="bg-grey-light">
+	<div class="max-w-xl mx-auto p-4 text-right text-sm text-grey-darker">
+		Want to make a suggestion? <a href="https://github.com/crazko/statie-web" class="text-grey-darkest">Help us improve</a> the content.
+	</div>
+</div>
+
+<footer role="contentinfo" class="footer text-center p-4 text-white">
+	<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; 2020, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
+	<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
+</footer>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4520387-28"></script>
+<script>
+	// Disable when running locally
+	if (window.location.hostname === 'localhost') {
+		window['ga-disable-' + "UA-4520387-28"] = true;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', "UA-4520387-28");
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+	docsearch({
+		apiKey: "6ea3c9a817ba6a2f43a7e096348563b2",
+		indexName: 'statie',
+		inputSelector: '.search__input',
+		debug: true // Set debug to true if you want to inspect the dropdown
+	});
+</script>
+</body>
+</html>

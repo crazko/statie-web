@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Statie - Modern and Simple Static Site Generator in PHP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" integrity="sha256-DJJDQyzflMYiUb2jX3gilm9m3gAkHPC4WLv9BAk4rTE=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+	<link rel="stylesheet" href="/assets/css/styles.css?202004071218">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js" integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-bash.min.js" integrity="sha256-SCZNeXkzfrzH5HaOFT+SJ3dAe+lfCvSX0kC1e2HH8mc=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js" integrity="sha256-YiD4iV/2ItR7G+/f9kSqSxPn/7TYqX9vFxKdZ8mcx5w=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
+	integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-twig.min.js" integrity="sha256-zLGURZSfopdiruX4pMd0uHs7xPYisO2tS+W7J3FeDsU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="bg-grey-darkest p-4 text-yellow-dark shadow-inner" style="position: sticky; top: 0; z-index: 10;"><span class="uppercase text-white font-bold">Notice:</span> Statie <a href="https://www.tomasvotruba.com/blog/2020/03/09/art-of-letting-go/" class="text-yellow">is deprecated</a> as of March 2020. You can switch to <a href="https://www.tomasvotruba.com/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper/" class="text-yellow">Symfony Static Dumper</a>.</div>
+
+<header class="header max-w-xl mx-auto py-4 sm:py-8 px-4">
+	<nav role="navigation" class="text-xl">
+		<ul class="nav list-reset sm:flex items-center text-center flex-wrap">
+			<li class="logo mb-4 sm:mb-0"><a href="/"><img src="/assets/img/logo.svg" alt=""></a></li>
+			<li class="sm:ml-8 inline-block"><a href="/docs/getting-started/" class="nav__link">docs</a></li>
+			<li class="ml-4 inline-block"><a href="/tutorials/simple-blog/" class="nav__link">tutorial</a></li>
+			<li class="ml-4 inline-block"><a href="/community/" class="nav__link">community</a></li>
+			<li class="ml-4 inline-block"><a href="https://github.com/Symplify/Statie" class="nav__link">github</a></li>
+			<li class="w-full sm:w-auto sm:float-right text-sm flex flex-1 justify-end mt-4 sm:mt-0"><input type="text" placeholder="search" class="search__input p-2 rounded w-full sm:w-24 md:w-32"></li>
+		</ul>
+	</nav>
+</header>
+
+		<div class="hero max-w-xl mx-auto py-8 px-4 text-white flex flex-col justify-end text-white relative">
+	<div class="hero__subtitle text-3xl font-thin my-2">Modern and Simple Static Site Generator written in PHP</div>
+	<p class="text-teal-darker">Statie takes HTML, Markdown and Twig or Latte files and generates static HTML page.</p>
+	<div class="my-8">
+		<a href="/docs/getting-started" class="bg-yellow-dark p-2 rounded w-32 inline-block text-xl text-center text-yellow-darkest no-underline hover:bg-yellow mr-2">See Docs</a>
+		<a href="https://github.com/Symplify/Statie" class="border p-2 rounded w-32 inline-block text-xl text-center text-white no-underline hover:bg-white hover:text-grey-darkest">GitHub</a>
+	</div>
+	<p class="text-teal-darker">or see what have our <a href="/community/" class="text-white no-underline hover:underline">community</a> prepared.
+	<pre class="terminal hidden md:block"><code>$ composer require symplify/statie
+$ vendor/bin/statie generate source
+
+  <span class="text-yellow">Website</b> was successfully generated to /output.</span>
+
+$ php -S localhost:8000 -t output
+
+  <span class="text-yellow">Open browser at http://localhost:8000 to see it.</span></code></pre>
+		</div>
+
+	<main role="main" class="main bg-white">
+		<div class="max-w-xl mx-auto py-8 px-4">
+				<h2>Features</h2>
+	<div class="md:flex -mx-4 md:text-center">
+		<div class="flex-1 px-4">
+			<h3>Markdown and Twig or Latte</h3>
+			<p>Create your content easily in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and your templates with the use of <a href="https://twig.symfony.com/">Twig</a> or <a href="https://latte.nette.org/en/">Latte</a>.<p>
+		</div>
+		<div class="flex-1 px-4">
+			<h3>Symfony-like configuration</h3>
+			<p>Use yaml <a href="/docs/configuration">configuration files</a> to set globally accessible parameters and service autowiring.</p>
+		</div>
+		<div class="flex-1 px-4">
+			<h3>PHP 7.1</h3>
+			<p>Built with the newest version under the hood so you can be sure you work with the most reliable ally.</p>
+		</div>
+	</div>
+		</div>
+	</main>
+
+	<section class="bg-yellow-dark text-grey-darkest">
+	<div class="max-w-xl mx-auto py-8 px-4 ">
+		<h1>Built with Statie</h1>
+		<p class="mb-4">Take a look on what have been built so far. Be sure to <a href="https://github.com/crazko/statie-web/edit/master/source/_data/projects.yml" class="text-black">add your project</a> as well!</p>
+
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="https://friendsofphp.org" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					friendsofphp.org
+				</a>
+
+					<a href="https://github.com/tomasvotruba/friendsofphp.org" class="project__repository">github</a>
+			</div>
+
+				
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="https://tomasvotruba.cz" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					tomasvotruba.cz
+				</a>
+
+					<a href="https://github.com/tomasvotruba/tomasvotruba.cz" class="project__repository">github</a>
+			</div>
+
+				
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="https://pehapkari.cz" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					pehapkari.cz
+				</a>
+
+					<a href="https://github.com/pehapkari/pehapkari.cz" class="project__repository">github</a>
+			</div>
+
+				
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="https://ikvasnica.com" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					ikvasnica.com
+				</a>
+
+					<a href="https://github.com/ikvasnica/ikvasnica.com" class="project__repository">github</a>
+			</div>
+
+				
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="http://enumag.cz" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					enumag.cz
+				</a>
+
+					<a href="https://github.com/enumag/enumag.cz" class="project__repository">github</a>
+			</div>
+
+				
+			<div class="inline-block mr-2 mb-2 relative">
+				<a href="https://www.posobota.cz" class="border p-2 rounded inline-block border-grey-darkest hover:text-grey-darkest hover:bg-white hover:border-white no-underline text-grey-darkest text-sm">
+					posobota.cz
+				</a>
+
+			</div>
+
+				<a href="/community/" class="text-black">and more</a>…
+	</div>
+</section>
+
+<div class="bg-grey-light">
+	<div class="max-w-xl mx-auto p-4 text-right text-sm text-grey-darker">
+		Want to make a suggestion? <a href="https://github.com/crazko/statie-web" class="text-grey-darkest">Help us improve</a> the content.
+	</div>
+</div>
+
+<footer role="contentinfo" class="footer text-center p-4 text-white">
+	<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; 2020, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
+	<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
+</footer>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4520387-28"></script>
+<script>
+	// Disable when running locally
+	if (window.location.hostname === 'localhost') {
+		window['ga-disable-' + "UA-4520387-28"] = true;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', "UA-4520387-28");
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+	docsearch({
+		apiKey: "6ea3c9a817ba6a2f43a7e096348563b2",
+		indexName: 'statie',
+		inputSelector: '.search__input',
+		debug: true // Set debug to true if you want to inspect the dropdown
+	});
+</script>
+</body>
+</html>

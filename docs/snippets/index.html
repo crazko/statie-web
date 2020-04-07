@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Snippets | Statie - Modern and Simple Static Site Generator in PHP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" integrity="sha256-DJJDQyzflMYiUb2jX3gilm9m3gAkHPC4WLv9BAk4rTE=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+	<link rel="stylesheet" href="/assets/css/styles.css?202004071218">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js" integrity="sha256-hK55yYjZp3vXqUhowkWYVaoavcWSYRR6fE8sgHqyt5A=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-bash.min.js" integrity="sha256-SCZNeXkzfrzH5HaOFT+SJ3dAe+lfCvSX0kC1e2HH8mc=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js" integrity="sha256-YiD4iV/2ItR7G+/f9kSqSxPn/7TYqX9vFxKdZ8mcx5w=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-yaml.min.js"
+	integrity="sha256-aKpS5lS6EuYfqhnxcX2EHcTiqoL6zIbLtM0UAVNmue4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-twig.min.js" integrity="sha256-zLGURZSfopdiruX4pMd0uHs7xPYisO2tS+W7J3FeDsU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="bg-grey-darkest p-4 text-yellow-dark shadow-inner" style="position: sticky; top: 0; z-index: 10;"><span class="uppercase text-white font-bold">Notice:</span> Statie <a href="https://www.tomasvotruba.com/blog/2020/03/09/art-of-letting-go/" class="text-yellow">is deprecated</a> as of March 2020. You can switch to <a href="https://www.tomasvotruba.com/blog/2020/03/16/statie-is-dead-long-live-symfony-static-dumper/" class="text-yellow">Symfony Static Dumper</a>.</div>
+
+<header class="header max-w-xl mx-auto py-4 sm:py-8 px-4">
+	<nav role="navigation" class="text-xl">
+		<ul class="nav list-reset sm:flex items-center text-center flex-wrap">
+			<li class="logo mb-4 sm:mb-0"><a href="/"><img src="/assets/img/logo.svg" alt=""></a></li>
+			<li class="sm:ml-8 inline-block"><a href="/docs/getting-started/" class="nav__link nav__link--active">docs</a></li>
+			<li class="ml-4 inline-block"><a href="/tutorials/simple-blog/" class="nav__link">tutorial</a></li>
+			<li class="ml-4 inline-block"><a href="/community/" class="nav__link">community</a></li>
+			<li class="ml-4 inline-block"><a href="https://github.com/Symplify/Statie" class="nav__link">github</a></li>
+			<li class="w-full sm:w-auto sm:float-right text-sm flex flex-1 justify-end mt-4 sm:mt-0"><input type="text" placeholder="search" class="search__input p-2 rounded w-full sm:w-24 md:w-32"></li>
+		</ul>
+	</nav>
+</header>
+
+
+	<main role="main" class="main bg-white">
+		<div class="max-w-xl mx-auto py-8 px-4">
+				<div class="md:flex md:flex-row-reverse">
+		<div class="content md:flex-1 md:min-w-0">
+			<h1 class="text-grey-darker">Snippets</h1>
+			<p>Sometimes you need to add part of template, that you want to use on multiple pages (in the same form or with smaller changes) or that makes your template less readable.</p>
+<h2>Google Analytics</h2>
+<p>Often you start a new web with settings up Google Analytics measure code.</p>
+<p>It looks like this:</p>
+<pre><code class="language-javascript">&lt;script&gt;
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'YXZ', 'auto');
+    ga('send','pageview');
+&lt;/script&gt;
+&lt;script async defer src="https://www.google-analytics.com/analytics.js"&gt;&lt;/script&gt;</code></pre>
+<p>We put into layout:</p>
+<pre><code class="language-twig">&lt;!-- source/_layouts/default.twig --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block content %}{% endblock %}
+
+        &lt;script&gt;
+            ga=function(){ ga.q.push(arguments) };
+            ga.q=[];
+            ga.l=+new Date;
+            ga('create', 'XYZ', 'auto');
+            ga('send','pageview');
+        &lt;/script&gt;
+        &lt;script async defer src="https://www.google-analytics.com/analytics.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>This layout might be small, but it will be definitely bigger in real app and <strong>will keep growing and growing in time</strong>.</p>
+<p>Google Analytics code is not something we change or extend too much. Why not outsource it?</p>
+<h2>Sexy &amp; Small Snippet</h2>
+<p>What if you could use some &quot;include googleAnalytics snippet&quot; command?</p>
+<p>With Statie you can!</p>
+<pre><code class="language-twig">{% include "_snippets/googleAnalytics.twig" %}</code></pre>
+<h3>How does it Work?</h3>
+<p>Statie scans <code>/_snippets</code> directory and turns all files to snippets. Relative path of the file in <code>/source</code> directory = key for including the snippets.</p>
+<ul>
+<li>&quot;_snippets/googleAnalytics.twig&quot; =&gt; <code>snippets/googleAnalytics.twig</code></li>
+</ul>
+<h3>Decoupling the Snippet</h3>
+<p>First, we create the snippet file and move the Google Analytics code there:</p>
+<pre><code class="language-html">&lt;!-- source/_snippets/googleAnalytics.twig --&gt;
+
+&lt;script&gt;
+    ga = function() {
+        ga.q.push(arguments);
+    };
+    ga.q = [];
+    ga.l = +new Date();
+    ga("create", "XYZ", "auto");
+    ga("send", "pageview");
+&lt;/script&gt;
+&lt;script
+    async
+    defer
+    src="https://www.google-analytics.com/analytics.js"
+&gt;&lt;/script&gt;</code></pre>
+<p>Then clean the layout:</p>
+<pre><code class="language-twig">&lt;!-- source/_layouts/default.twig --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block content %}{% endblock %}
+        {% include "_snippets/googleAnalytics.twig" %}
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>There is one last think that bothers me:</p>
+<pre><code class="language-javascript">ga("create", "XYZ", "auto");</code></pre>
+<p>Can you see it?</p>
+<h2>ProTip #1: Why Always Put IDs to Config and Not to Code</h2>
+<p>When you start using static site generator, you'll <strong>appreciate its power in scaling</strong>:</p>
+<ul>
+<li>First web might take some time to setup.</li>
+<li>Second is mostly copy-pasting previous settings and changing only layout and content.</li>
+<li>And third? Way too easy and well paid job.</li>
+</ul>
+<p>To allow this flow, I recommend <strong>keeping all IDs</strong> that change from site to site - Google Analytics, Facebook Pixel, Disqus ID... - in <code>_config/config.yml</code> file. When you create a new website, <strong>all you have to do is change one file</strong> to make it customized.</p>
+<h3>How To Do It</h3>
+<p>Read about <a href="/docs/configuration">how to handle configuration</a>.</p>
+<p>So you should end up with this:</p>
+<pre><code class="language-javascript">ga("create", "{{ $googleAnalytics }}", "auto");</code></pre>
+<p>Nice work!</p>
+<h2>ProTip #2: Too Many Snippets? Group them by Type</h2>
+<p>Often, I've ended up with many unrelated snippets in one directory.</p>
+<pre><code class="language-bash">/source
+    /_snippets
+        comments.twig
+        header.twig
+        footer.twig
+        postMetadata.twig
+        postHeadline.twig
+        postRecommendations.twig</code></pre>
+<p>There is no need for that. You can group them to subdirs as you like:</p>
+<pre><code class="language-bash">/source
+    /_snippets
+        /layout
+            header.twig
+            footer.twig
+        /post
+            comments.twig
+            postMetadata.twig
+            postHeadline.twig
+            postRecommendations.twig</code></pre>
+<h2>Now You Know</h2>
+<ul>
+<li>That using snippets will save lot of time.</li>
+<li><strong>That snippets are named by their filename</strong>: <code>{% include "_snippest/fileName.twig" %}</code>.</li>
+<li><strong>That snippets work the best with <a href="/docs/data-structures#2-global-or-bigger-amount-of-data">global configuration</a></strong>.</li>
+</ul>
+<p>Happy coding!</p>
+		</div>
+
+		<aside class="sidebar md:mr-8">
+<div class="uppercase mb-4">basic</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/getting-started" class="block py-2 no-underline hover:underline">Getting Started</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/configuration" class="block py-2 no-underline hover:underline">Configuration</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/headline-anchors" class="block py-2 no-underline hover:underline">Headline Anchors</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/custom-output-path" class="block py-2 no-underline hover:underline">Custom Output Path</a>
+		</li>
+</ul>
+<div class="uppercase mb-4">advanced</div>
+
+<ul class="list-reset">
+		<li class="border-b">
+			<a href="/docs/data-structures" class="block py-2 no-underline hover:underline">Data Structures</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/snippets" class="block py-2 no-underline hover:underline text-teal-dark">Snippets</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/related-items" class="block py-2 no-underline hover:underline">Related Items</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/generators" class="block py-2 no-underline hover:underline">Generators</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/hooks" class="block py-2 no-underline hover:underline">Hooks</a>
+		</li>
+		<li class="border-b">
+			<a href="/docs/github-pages" class="block py-2 no-underline hover:underline">Publish Content To Github Pages with Travis</a>
+		</li>
+</ul>
+		</aside>
+	</div>
+		</div>
+	</main>
+
+	
+<div class="bg-grey-light">
+	<div class="max-w-xl mx-auto p-4 text-right text-sm text-grey-darker">
+		Want to make a suggestion? <a href="https://github.com/crazko/statie-web" class="text-grey-darkest">Help us improve</a> the content.
+	</div>
+</div>
+
+<footer role="contentinfo" class="footer text-center p-4 text-white">
+	<p>Thanks to all the <a href="https://github.com/Symplify/Statie/graphs/contributors">contributors</a> &copy; 2020, <a href="https://github.com/Symplify/Statie/blob/master/LICENSE" class="text-white">MIT License</a></p>
+	<p class="uppercase text-xs mt-2">Runs on Statie, obviously 🤓</p>
+</footer>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4520387-28"></script>
+<script>
+	// Disable when running locally
+	if (window.location.hostname === 'localhost') {
+		window['ga-disable-' + "UA-4520387-28"] = true;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', "UA-4520387-28");
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+	docsearch({
+		apiKey: "6ea3c9a817ba6a2f43a7e096348563b2",
+		indexName: 'statie',
+		inputSelector: '.search__input',
+		debug: true // Set debug to true if you want to inspect the dropdown
+	});
+</script>
+</body>
+</html>
